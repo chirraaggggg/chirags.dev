@@ -107,13 +107,14 @@
   :root, :host {
     --font-sans: var(--font-sans);
     --color-yellow-400: #fac800;
-    --color-green-200: #b9f8cf;
-    --color-green-400: #05df72;
     --color-green-500: #00c758;
-    --color-green-600: #00a544;
-    --color-green-700: #008138;
     --color-emerald-500: #00bb7f;
     --color-emerald-700: #007956;
+    --color-blue-200: #bedbff;
+    --color-blue-400: #54a2ff;
+    --color-blue-500: #3080ff;
+    --color-blue-600: #155dfc;
+    --color-blue-700: #1447e6;
     --color-zinc-50: #fafafa;
     --color-zinc-100: #f4f4f5;
     --color-zinc-200: #e4e4e7;
@@ -175,13 +176,14 @@
   @supports (color: lab(0% 0 0)) {
     :root, :host {
       --color-yellow-400: lab(83.2664% 8.65132 106.895);
-      --color-green-200: lab(92.4222% -26.4702 12.9427);
-      --color-green-400: lab(78.503% -64.9265 39.7492);
       --color-green-500: lab(70.5521% -66.5147 45.8073);
-      --color-green-600: lab(59.0978% -58.6621 41.2579);
-      --color-green-700: lab(47.0329% -47.0239 31.4788);
       --color-emerald-500: lab(66.9756% -58.27 19.5419);
       --color-emerald-700: lab(44.4871% -41.0396 11.0361);
+      --color-blue-200: lab(86.15% -4.04379 -21.0797);
+      --color-blue-400: lab(65.0361% -1.42065 -56.9802);
+      --color-blue-500: lab(54.1736% 13.3369 -74.6839);
+      --color-blue-600: lab(44.0605% 29.0279 -86.0352);
+      --color-blue-700: lab(36.9089% 35.0961 -85.6872);
       --color-zinc-50: lab(98.26% 0 0);
       --color-zinc-100: lab(96.1634% .0993311 -.364041);
       --color-zinc-200: lab(90.6853% .399232 -1.45452);
@@ -4431,24 +4433,24 @@
     color: var(--destructive);
   }
 
-  .data-\[level\=\"0\"\]\:fill-green-200[data-level="0"] {
-    fill: var(--color-green-200);
+  .data-\[level\=\"0\"\]\:fill-blue-200[data-level="0"] {
+    fill: var(--color-blue-200);
   }
 
-  .data-\[level\=\"1\"\]\:fill-green-400[data-level="1"] {
-    fill: var(--color-green-400);
+  .data-\[level\=\"1\"\]\:fill-blue-400[data-level="1"] {
+    fill: var(--color-blue-400);
   }
 
-  .data-\[level\=\"2\"\]\:fill-green-500[data-level="2"] {
-    fill: var(--color-green-500);
+  .data-\[level\=\"2\"\]\:fill-blue-500[data-level="2"] {
+    fill: var(--color-blue-500);
   }
 
-  .data-\[level\=\"3\"\]\:fill-green-600[data-level="3"] {
-    fill: var(--color-green-600);
+  .data-\[level\=\"3\"\]\:fill-blue-600[data-level="3"] {
+    fill: var(--color-blue-600);
   }
 
-  .data-\[level\=\"4\"\]\:fill-green-700[data-level="4"] {
-    fill: var(--color-green-700);
+  .data-\[level\=\"4\"\]\:fill-blue-700[data-level="4"] {
+    fill: var(--color-blue-700);
   }
 
   .data-\[orientation\=horizontal\]\:h-px[data-orientation="horizontal"] {

@@ -343,7 +343,7 @@ const DEFAULT_LABELS = {
         more: "More"
     }
 };
-const THEME = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])('data-[level="0"]:fill-green-200', 'data-[level="1"]:fill-green-400', 'data-[level="2"]:fill-green-500', 'data-[level="3"]:fill-green-600', 'data-[level="4"]:fill-green-700');
+const THEME = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])('data-[level="0"]:fill-blue-200', 'data-[level="1"]:fill-blue-400', 'data-[level="2"]:fill-blue-500', 'data-[level="3"]:fill-blue-600', 'data-[level="4"]:fill-blue-700');
 const ContributionGraphContext = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createContext"])(null);
 const useContributionGraph = ()=>{
     _s();

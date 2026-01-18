@@ -75,11 +75,11 @@ const DEFAULT_LABELS: Labels = {
 };
 
 const THEME = cn(
-  'data-[level="0"]:fill-green-200',
-  'data-[level="1"]:fill-green-400',
-  'data-[level="2"]:fill-green-500',
-  'data-[level="3"]:fill-green-600',
-  'data-[level="4"]:fill-green-700'
+  'data-[level="0"]:fill-blue-200',
+  'data-[level="1"]:fill-blue-400',
+  'data-[level="2"]:fill-blue-500',
+  'data-[level="3"]:fill-blue-600',
+  'data-[level="4"]:fill-blue-700'
 );
 
 type ContributionGraphContextType = {
