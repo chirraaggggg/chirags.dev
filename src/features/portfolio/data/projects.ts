@@ -79,6 +79,7 @@ export const PROJECTS: Project[] = [
     period: {
       start: "2025",
     },
+    link: "https://github.com/chiragsharma/vehicle-insurance-mlops",
     skills: [
       "MLOps",
       "Machine Learning",

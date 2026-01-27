@@ -37,7 +37,6 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
-import type { Post } from "@/features/blog/types/post";
 import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links";
 import { useSound } from "@/hooks/use-sound";
 import { trackEvent } from "@/lib/events";
@@ -62,7 +61,7 @@ const MENU_LINKS: CommandLinkItem[] = [
   {
     title: "Portfolio",
     href: "/",
-    icon: Icons.home,
+    icon: BriefcaseBusinessIcon,
   },
   {
     title: "Components",
@@ -151,7 +150,7 @@ const OTHER_LINK_ITEMS: CommandLinkItem[] = [
   },
 ];
 
-export function CommandMenu({ posts }: { posts: Post[] }) {
+export function CommandMenu() {
   const router = useRouter();
 
   const { setTheme, resolvedTheme } = useTheme();
@@ -239,23 +238,6 @@ export function CommandMenu({ posts }: { posts: Post[] }) {
     [playClick, setTheme]
   );
 
-  const { componentLinks, blogLinks } = useMemo(
-    () => ({
-      componentLinks: posts
-        .filter((post) => post.metadata?.category === "components")
-        .sort((a, b) =>
-          a.metadata.title.localeCompare(b.metadata.title, "en", {
-            sensitivity: "base",
-          })
-        )
-        .map(postToCommandLinkItem),
-      blogLinks: posts
-        .filter((post) => post.metadata?.category !== "components")
-        .map(postToCommandLinkItem),
-    }),
-    [posts]
-  );
-
   return (
     <>
       <Button
@@ -303,20 +285,6 @@ export function CommandMenu({ posts }: { posts: Post[] }) {
           <CommandLinkGroup
             heading="Portfolio"
             links={PORTFOLIO_LINKS}
-            onLinkSelect={handleOpenLink}
-          />
-
-          <CommandLinkGroup
-            heading="Components"
-            links={componentLinks}
-            fallbackIcon={Icons.react}
-            onLinkSelect={handleOpenLink}
-          />
-
-          <CommandLinkGroup
-            heading="Blog"
-            links={blogLinks}
-            fallbackIcon={TextIcon}
             onLinkSelect={handleOpenLink}
           />
 
@@ -488,7 +456,7 @@ function CommandMenuFooter() {
       <div className="flex h-10" />
 
       <div className="absolute inset-x-0 bottom-0 flex h-10 items-center justify-between gap-2 border-t bg-zinc-100/30 px-4 text-xs font-medium dark:bg-zinc-800/30">
-        <ChanhDaiMark className="size-6 text-muted-foreground" aria-hidden />
+        <Icons.apple className="size-6 text-muted-foreground" aria-hidden />
 
         <div className="flex shrink-0 items-center gap-2">
           <span>{ENTER_ACTION_LABELS[selectedCommandKind]}</span>
@@ -505,21 +473,4 @@ function CommandMenuFooter() {
       </div>
     </>
   );
-}
-
-function postToCommandLinkItem(post: Post): CommandLinkItem {
-  const isComponent = post.metadata?.category === "components";
-
-  const IconComponent = isComponent
-    ? (props: LucideProps) => (
-        <ComponentIcon {...props} variant={post.metadata.icon} />
-      )
-    : undefined;
-
-  return {
-    title: post.metadata.title,
-    href: isComponent ? `/components/${post.slug}` : `/blog/${post.slug}`,
-    keywords: isComponent ? ["component"] : undefined,
-    icon: IconComponent,
-  };
 }

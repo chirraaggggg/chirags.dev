@@ -3,8 +3,12 @@ import path from "node:path";
 
 import { visit } from "unist-util-visit";
 
-import { Index } from "@/__registry__/index";
+import { registry } from "@/registry/index";
 import type { UnistNode, UnistTree } from "@/types/unist";
+
+function getComponentByName(name: string) {
+  return registry.items.find((item) => item.name === name);
+}
 
 export function remarkComponent() {
   return async (tree: UnistTree) => {
@@ -33,18 +37,28 @@ export function remarkComponent() {
           if (srcPath) {
             src = path.join(process.cwd(), srcPath);
           } else {
-            const component = Index[name];
-            src = fileName
-              ? component.files.find((file: unknown) => {
-                  if (typeof file === "string") {
-                    return (
-                      file.endsWith(`${fileName}.tsx`) ||
-                      file.endsWith(`${fileName}.ts`)
-                    );
-                  }
-                  return false;
-                }) || component.files[0]?.path
-              : component.files[0]?.path;
+            const component = getComponentByName(name);
+            if (!component || !component.files) {
+              console.error(`Component ${name} not found in registry`);
+              return null;
+            }
+            
+            let fileProp: any;
+            if (fileName) {
+              fileProp = component.files.find((file: any) => {
+                const filePath = typeof file === "string" ? file : file.path;
+                return (
+                  filePath.endsWith(`${fileName}.tsx`) ||
+                  filePath.endsWith(`${fileName}.ts`)
+                );
+              });
+            }
+            
+            if (!fileProp) {
+              fileProp = component.files[0];
+            }
+            
+            src = typeof fileProp === "string" ? fileProp : (fileProp?.path || "");
           }
 
           // Read the source file.
@@ -89,9 +103,13 @@ export function remarkComponent() {
         }
 
         try {
-          const component = Index[name];
+          const component = getComponentByName(name);
+          if (!component || !component.files) {
+            console.error(`Component ${name} not found in registry`);
+            return null;
+          }
 
-          const src = component.files[0]?.path;
+          const src = typeof component.files[0] === "string" ? component.files[0] : component.files[0]?.path;
 
           // Read the source file.
           const filePath = src;

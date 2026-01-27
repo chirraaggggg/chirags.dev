@@ -18,9 +18,7 @@ export const USER = {
   email: "aWFtY2hyYWcxODJAZ21haWwuY29t", // base64 encoded
   website: "https://chirags.dev",
   jobTitle: "Software Developer",
-  jobs: [
-  
-  ],
+  jobs: [] as Array<{ title: string; company: string; website: string }>,
   //   about: `
   // Hello, World! I am Chánh Đại — a Design Engineer passionate about creating high-performance, user-centric software solutions with intuitive and engaging designs.
 

@@ -4,7 +4,7 @@ import { RepeatIcon } from "lucide-react";
 import { useTheme } from "next-themes";
 import React, { useMemo, useState } from "react";
 
-import { Index } from "@/__registry__/index";
+import { registry } from "@/registry/index";
 import { cn } from "@/lib/utils";
 
 import { CodeCollapsibleWrapper } from "./code-collapsible-wrapper";
@@ -39,18 +39,15 @@ export function ComponentPreviewV2({
   const Code = Codes[0];
 
   const Preview = useMemo(() => {
-    const Component = Index[name]?.component;
-
-    if (!Component) {
-      return (
-        <p className="text-sm text-muted-foreground">
-          Component <CodeInline>{name}</CodeInline> not found in registry.
-        </p>
-      );
-    }
-
-    return <Component />;
-  }, [name]);
+    // Registry structure has been updated - component previews need to be passed as children
+    return typeof children === "string" ? (
+      <p className="text-sm text-muted-foreground">
+        Component <CodeInline>{name}</CodeInline> not found in registry.
+      </p>
+    ) : (
+      children
+    );
+  }, [name, children]);
 
   return (
     <div
