@@ -1,8 +1,8 @@
-# chiragsharma.dev
+# chirag sharma portfolio
 
 A modern, minimal dev portfolio to showcase my work as a full-stack developer.
 
-Check out the live site: [chiragsharma.dev](https://chiragsharma.dev)
+Check out the live site: [chirags.dev](https://chirags.dev)
 
 ## Overview
 
