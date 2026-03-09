@@ -1,7 +1,4 @@
-import {
-  GlobeIcon,
-  MapPinIcon,
-} from "lucide-react";
+import { GlobeIcon, MapPinIcon } from "lucide-react";
 
 import { USER } from "@/features/portfolio/data/user";
 import { urlToName } from "@/utils/url";
@@ -24,58 +21,58 @@ export function Overview() {
         <h2 className="sr-only">Overview</h2>
 
         <PanelContent className="space-y-2.5">
-        {USER.jobs.map((job, index) => {
-          return (
-            <JobItem
-              key={index}
-              title={job.title}
-              company={job.company}
-              website={job.website}
-            />
-          );
-        })}
+          {USER.jobs.map((job, index) => {
+            return (
+              <JobItem
+                key={index}
+                title={job.title}
+                company={job.company}
+                website={job.website}
+              />
+            );
+          })}
 
-        <div className="grid gap-x-12 gap-y-2.5 sm:grid-cols-2">
-          <IntroItem>
-            <IntroItemIcon>
-              <MapPinIcon />
-            </IntroItemIcon>
-            <IntroItemContent>
-              <IntroItemLink
-                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(USER.address)}`}
-                aria-label={`Location: ${USER.address}`}
-              >
-                {USER.address}
-              </IntroItemLink>
-            </IntroItemContent>
-          </IntroItem>
+          <div className="grid gap-x-12 gap-y-2.5 sm:grid-cols-2">
+            <IntroItem>
+              <IntroItemIcon>
+                <MapPinIcon />
+              </IntroItemIcon>
+              <IntroItemContent>
+                <IntroItemLink
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(USER.address)}`}
+                  aria-label={`Location: ${USER.address}`}
+                >
+                  {USER.address}
+                </IntroItemLink>
+              </IntroItemContent>
+            </IntroItem>
 
-          <div />
+            <div />
 
-          <CurrentLocalTimeItem timeZone={USER.timeZone} />
+            <CurrentLocalTimeItem timeZone={USER.timeZone} />
 
-          <div />
+            <div />
 
-          <EmailItem email={USER.email} />
+            <EmailItem email={USER.email} />
 
-          <div />
+            <div />
 
-          <IntroItem>
-            <IntroItemIcon>
-              <GlobeIcon />
-            </IntroItemIcon>
-            <IntroItemContent>
-              <IntroItemLink
-                href={USER.website}
-                aria-label={`Personal website: ${urlToName(USER.website)}`}
-              >
-                {urlToName(USER.website)}
-              </IntroItemLink>
-            </IntroItemContent>
-          </IntroItem>
-        </div>
-      </PanelContent>
-    </Panel>
+            <IntroItem>
+              <IntroItemIcon>
+                <GlobeIcon />
+              </IntroItemIcon>
+              <IntroItemContent>
+                <IntroItemLink
+                  href={USER.website}
+                  aria-label={`Personal website: ${urlToName(USER.website)}`}
+                >
+                  {urlToName(USER.website)}
+                </IntroItemLink>
+              </IntroItemContent>
+            </IntroItem>
+          </div>
+        </PanelContent>
+      </Panel>
     </div>
   );
 }
