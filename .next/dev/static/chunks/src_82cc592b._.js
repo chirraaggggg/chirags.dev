@@ -856,7 +856,7 @@ function GitHubContributionGraph({ contributions }) {
     const data = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["use"])(contributions);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$base$2f$ui$2f$tooltip$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TooltipProvider"], {
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$kibo$2d$ui$2f$contribution$2d$graph$2f$index$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ContributionGraph"], {
-            className: "mx-auto py-2 border-2 border-dashed border-border rounded-lg p-4",
+            className: "mx-auto py-2 border-2 border-border rounded-lg p-4",
             data: data,
             blockSize: 11,
             blockMargin: 3,
@@ -1680,7 +1680,7 @@ function PanelHeader({ className, ...props }) {
         ...props
     }, void 0, false, {
         fileName: "[project]/src/features/portfolio/components/panel.tsx",
-        lineNumber: 23,
+        lineNumber: 20,
         columnNumber: 5
     }, this);
 }
@@ -1693,7 +1693,7 @@ function PanelTitle({ className, asChild = false, ...props }) {
         ...props
     }, void 0, false, {
         fileName: "[project]/src/features/portfolio/components/panel.tsx",
-        lineNumber: 39,
+        lineNumber: 36,
         columnNumber: 5
     }, this);
 }
@@ -1704,7 +1704,7 @@ function PanelTitleSup({ className, ...props }) {
         ...props
     }, void 0, false, {
         fileName: "[project]/src/features/portfolio/components/panel.tsx",
-        lineNumber: 49,
+        lineNumber: 46,
         columnNumber: 5
     }, this);
 }
@@ -1716,7 +1716,7 @@ function PanelContent({ className, ...props }) {
         ...props
     }, void 0, false, {
         fileName: "[project]/src/features/portfolio/components/panel.tsx",
-        lineNumber: 61,
+        lineNumber: 58,
         columnNumber: 5
     }, this);
 }
@@ -1839,7 +1839,7 @@ function TechIcon({ tech }) {
             children: tech.title.split(" ")[0].slice(0, 2).toUpperCase()
         }, void 0, false, {
             fileName: "[project]/src/features/portfolio/components/teck-stack.tsx",
-            lineNumber: 50,
+            lineNumber: 53,
             columnNumber: 7
         }, this);
     }
@@ -1848,7 +1848,7 @@ function TechIcon({ tech }) {
             className: "flex items-center justify-center w-8 h-8 rounded bg-muted animate-pulse"
         }, void 0, false, {
             fileName: "[project]/src/features/portfolio/components/teck-stack.tsx",
-            lineNumber: 58,
+            lineNumber: 61,
             columnNumber: 7
         }, this);
     }
@@ -1871,7 +1871,7 @@ function TechIcon({ tech }) {
             children: tech.title.split(" ")[0].slice(0, 2).toUpperCase()
         }, void 0, false, {
             fileName: "[project]/src/features/portfolio/components/teck-stack.tsx",
-            lineNumber: 83,
+            lineNumber: 88,
             columnNumber: 7
         }, this);
     }
@@ -1885,7 +1885,7 @@ function TechIcon({ tech }) {
         onError: ()=>setImageError(true)
     }, void 0, false, {
         fileName: "[project]/src/features/portfolio/components/teck-stack.tsx",
-        lineNumber: 90,
+        lineNumber: 95,
         columnNumber: 5
     }, this);
 }
@@ -1897,7 +1897,7 @@ _s(TechIcon, "C7mAHmoRwAOwJ+pPaBnffYWaW0U=", false, function() {
 _c = TechIcon;
 function TeckStack() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "border-2 border-dashed border-border rounded-lg p-4",
+        className: "border-2 border-border rounded-lg p-4",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$portfolio$2f$components$2f$panel$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Panel"], {
             id: "stack",
             className: "border-x-0",
@@ -1907,12 +1907,12 @@ function TeckStack() {
                         children: "Stack"
                     }, void 0, false, {
                         fileName: "[project]/src/features/portfolio/components/teck-stack.tsx",
-                        lineNumber: 107,
+                        lineNumber: 112,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/features/portfolio/components/teck-stack.tsx",
-                    lineNumber: 106,
+                    lineNumber: 111,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$portfolio$2f$components$2f$panel$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["PanelContent"], {
@@ -1933,8 +1933,8 @@ function TeckStack() {
                                                     "aria-label": tech.title
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/features/portfolio/components/teck-stack.tsx",
-                                                    lineNumber: 123,
-                                                    columnNumber: 25
+                                                    lineNumber: 124,
+                                                    columnNumber: 27
                                                 }, void 0),
                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     className: "flex items-center justify-center hover:scale-110 transition-transform",
@@ -1942,68 +1942,68 @@ function TeckStack() {
                                                         tech: tech
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/features/portfolio/components/teck-stack.tsx",
-                                                        lineNumber: 132,
-                                                        columnNumber: 25
+                                                        lineNumber: 133,
+                                                        columnNumber: 27
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/features/portfolio/components/teck-stack.tsx",
-                                                    lineNumber: 131,
-                                                    columnNumber: 23
+                                                    lineNumber: 132,
+                                                    columnNumber: 25
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/features/portfolio/components/teck-stack.tsx",
-                                                lineNumber: 121,
-                                                columnNumber: 21
+                                                lineNumber: 122,
+                                                columnNumber: 23
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$base$2f$ui$2f$tooltip$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TooltipContent"], {
                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                     children: tech.title
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/features/portfolio/components/teck-stack.tsx",
-                                                    lineNumber: 137,
-                                                    columnNumber: 23
+                                                    lineNumber: 138,
+                                                    columnNumber: 25
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/features/portfolio/components/teck-stack.tsx",
-                                                lineNumber: 136,
-                                                columnNumber: 21
+                                                lineNumber: 137,
+                                                columnNumber: 23
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/features/portfolio/components/teck-stack.tsx",
-                                        lineNumber: 120,
-                                        columnNumber: 19
+                                        lineNumber: 121,
+                                        columnNumber: 21
                                     }, this)
                                 }, tech.key, false, {
                                     fileName: "[project]/src/features/portfolio/components/teck-stack.tsx",
-                                    lineNumber: 119,
-                                    columnNumber: 17
+                                    lineNumber: 120,
+                                    columnNumber: 19
                                 }, this);
                             })
                         }, void 0, false, {
                             fileName: "[project]/src/features/portfolio/components/teck-stack.tsx",
-                            lineNumber: 116,
-                            columnNumber: 11
+                            lineNumber: 117,
+                            columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/features/portfolio/components/teck-stack.tsx",
-                        lineNumber: 115,
+                        lineNumber: 116,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/features/portfolio/components/teck-stack.tsx",
-                    lineNumber: 110,
+                    lineNumber: 115,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/features/portfolio/components/teck-stack.tsx",
-            lineNumber: 105,
+            lineNumber: 110,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/features/portfolio/components/teck-stack.tsx",
-        lineNumber: 104,
+        lineNumber: 109,
         columnNumber: 5
     }, this);
 }

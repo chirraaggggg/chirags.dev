@@ -6,7 +6,7 @@ import { Panel, PanelContent, PanelHeader, PanelTitle } from "./panel";
 
 export function SocialLinksSection() {
   return (
-    <div className="border-2 border-dashed border-border rounded-lg p-4">
+    <div className="border-2 border-border rounded-lg p-4">
       <Panel className="border-x-0">
         <PanelHeader>
           <PanelTitle>Connect</PanelTitle>

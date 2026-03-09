@@ -31,7 +31,7 @@ export function GitHubContributionGraph({
   return (
     <TooltipProvider>
       <ContributionGraph
-        className="mx-auto py-2 border-2 border-dashed border-border rounded-lg p-4"
+        className="mx-auto py-2 border-2 border-border rounded-lg p-4"
         data={data}
         blockSize={11}
         blockMargin={3}

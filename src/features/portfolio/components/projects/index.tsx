@@ -6,7 +6,7 @@ import { ProjectItem } from "./project-item";
 
 export function Projects() {
   return (
-    <div className="border-2 border-dashed border-border rounded-lg p-4">
+    <div className="border-2 border-border rounded-lg p-4">
       <Panel id="projects" className="border-x-0">
         <PanelHeader>
           <PanelTitle>

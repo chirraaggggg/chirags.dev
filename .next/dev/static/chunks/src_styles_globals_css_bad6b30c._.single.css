@@ -2368,11 +2368,6 @@
     border-left-width: 1px;
   }
 
-  .border-dashed {
-    --tw-border-style: dashed;
-    border-style: dashed;
-  }
-
   .border-none {
     --tw-border-style: none;
     border-style: none;

@@ -310,7 +310,7 @@ function PanelHeader({ className, ...props }) {
         ...props
     }, void 0, false, {
         fileName: "[project]/src/features/portfolio/components/panel.tsx",
-        lineNumber: 23,
+        lineNumber: 20,
         columnNumber: 5
     }, this);
 }
@@ -322,7 +322,7 @@ function PanelTitle({ className, asChild = false, ...props }) {
         ...props
     }, void 0, false, {
         fileName: "[project]/src/features/portfolio/components/panel.tsx",
-        lineNumber: 39,
+        lineNumber: 36,
         columnNumber: 5
     }, this);
 }
@@ -332,7 +332,7 @@ function PanelTitleSup({ className, ...props }) {
         ...props
     }, void 0, false, {
         fileName: "[project]/src/features/portfolio/components/panel.tsx",
-        lineNumber: 49,
+        lineNumber: 46,
         columnNumber: 5
     }, this);
 }
@@ -343,7 +343,7 @@ function PanelContent({ className, ...props }) {
         ...props
     }, void 0, false, {
         fileName: "[project]/src/features/portfolio/components/panel.tsx",
-        lineNumber: 61,
+        lineNumber: 58,
         columnNumber: 5
     }, this);
 }
@@ -368,7 +368,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$portfolio
 ;
 function About() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "border-2 border-dashed border-border rounded-lg p-4",
+        className: "border-2 border-border rounded-lg p-4",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$portfolio$2f$components$2f$panel$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Panel"], {
             id: "about",
             className: "border-x-0",
@@ -1054,7 +1054,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$portfolio
 ;
 function Experiences() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "border-2 border-dashed border-border rounded-lg p-4",
+        className: "border-2 border-border rounded-lg p-4",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$portfolio$2f$components$2f$panel$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Panel"], {
             id: "experience",
             className: "border-x-0",
@@ -1461,7 +1461,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$portfolio
 ;
 function Overview() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "border-2 border-dashed border-border rounded-lg p-4",
+        className: "border-2 border-border rounded-lg p-4",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$portfolio$2f$components$2f$panel$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Panel"], {
             className: "border-x-0",
             children: [
@@ -1470,7 +1470,7 @@ function Overview() {
                     children: "Overview"
                 }, void 0, false, {
                     fileName: "[project]/src/features/portfolio/components/overview/index.tsx",
-                    lineNumber: 24,
+                    lineNumber: 21,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$portfolio$2f$components$2f$panel$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["PanelContent"], {
@@ -1483,8 +1483,8 @@ function Overview() {
                                 website: job.website
                             }, index, false, {
                                 fileName: "[project]/src/features/portfolio/components/overview/index.tsx",
-                                lineNumber: 29,
-                                columnNumber: 13
+                                lineNumber: 26,
+                                columnNumber: 15
                             }, this);
                         }),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1495,13 +1495,13 @@ function Overview() {
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$portfolio$2f$components$2f$overview$2f$intro$2d$item$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["IntroItemIcon"], {
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__MapPinIcon$3e$__["MapPinIcon"], {}, void 0, false, {
                                                 fileName: "[project]/src/features/portfolio/components/overview/index.tsx",
-                                                lineNumber: 41,
-                                                columnNumber: 15
+                                                lineNumber: 38,
+                                                columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/features/portfolio/components/overview/index.tsx",
-                                            lineNumber: 40,
-                                            columnNumber: 13
+                                            lineNumber: 37,
+                                            columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$portfolio$2f$components$2f$overview$2f$intro$2d$item$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["IntroItemContent"], {
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$portfolio$2f$components$2f$overview$2f$intro$2d$item$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["IntroItemLink"], {
@@ -1510,61 +1510,61 @@ function Overview() {
                                                 children: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$portfolio$2f$data$2f$user$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["USER"].address
                                             }, void 0, false, {
                                                 fileName: "[project]/src/features/portfolio/components/overview/index.tsx",
-                                                lineNumber: 44,
-                                                columnNumber: 15
+                                                lineNumber: 41,
+                                                columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/features/portfolio/components/overview/index.tsx",
-                                            lineNumber: 43,
-                                            columnNumber: 13
+                                            lineNumber: 40,
+                                            columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/features/portfolio/components/overview/index.tsx",
-                                    lineNumber: 39,
-                                    columnNumber: 11
+                                    lineNumber: 36,
+                                    columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {}, void 0, false, {
                                     fileName: "[project]/src/features/portfolio/components/overview/index.tsx",
-                                    lineNumber: 53,
-                                    columnNumber: 11
+                                    lineNumber: 50,
+                                    columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$portfolio$2f$components$2f$overview$2f$current$2d$local$2d$time$2d$item$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["CurrentLocalTimeItem"], {
                                     timeZone: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$portfolio$2f$data$2f$user$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["USER"].timeZone
                                 }, void 0, false, {
                                     fileName: "[project]/src/features/portfolio/components/overview/index.tsx",
-                                    lineNumber: 55,
-                                    columnNumber: 11
+                                    lineNumber: 52,
+                                    columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {}, void 0, false, {
                                     fileName: "[project]/src/features/portfolio/components/overview/index.tsx",
-                                    lineNumber: 57,
-                                    columnNumber: 11
+                                    lineNumber: 54,
+                                    columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$portfolio$2f$components$2f$overview$2f$email$2d$item$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["EmailItem"], {
                                     email: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$portfolio$2f$data$2f$user$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["USER"].email
                                 }, void 0, false, {
                                     fileName: "[project]/src/features/portfolio/components/overview/index.tsx",
-                                    lineNumber: 59,
-                                    columnNumber: 11
+                                    lineNumber: 56,
+                                    columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {}, void 0, false, {
                                     fileName: "[project]/src/features/portfolio/components/overview/index.tsx",
-                                    lineNumber: 61,
-                                    columnNumber: 11
+                                    lineNumber: 58,
+                                    columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$portfolio$2f$components$2f$overview$2f$intro$2d$item$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["IntroItem"], {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$portfolio$2f$components$2f$overview$2f$intro$2d$item$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["IntroItemIcon"], {
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$globe$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__GlobeIcon$3e$__["GlobeIcon"], {}, void 0, false, {
                                                 fileName: "[project]/src/features/portfolio/components/overview/index.tsx",
-                                                lineNumber: 65,
-                                                columnNumber: 15
+                                                lineNumber: 62,
+                                                columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/features/portfolio/components/overview/index.tsx",
-                                            lineNumber: 64,
-                                            columnNumber: 13
+                                            lineNumber: 61,
+                                            columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$portfolio$2f$components$2f$overview$2f$intro$2d$item$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["IntroItemContent"], {
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$portfolio$2f$components$2f$overview$2f$intro$2d$item$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["IntroItemLink"], {
@@ -1573,41 +1573,41 @@ function Overview() {
                                                 children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$url$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["urlToName"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$portfolio$2f$data$2f$user$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["USER"].website)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/features/portfolio/components/overview/index.tsx",
-                                                lineNumber: 68,
-                                                columnNumber: 15
+                                                lineNumber: 65,
+                                                columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/features/portfolio/components/overview/index.tsx",
-                                            lineNumber: 67,
-                                            columnNumber: 13
+                                            lineNumber: 64,
+                                            columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/features/portfolio/components/overview/index.tsx",
-                                    lineNumber: 63,
-                                    columnNumber: 11
+                                    lineNumber: 60,
+                                    columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/features/portfolio/components/overview/index.tsx",
-                            lineNumber: 38,
-                            columnNumber: 9
+                            lineNumber: 35,
+                            columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/features/portfolio/components/overview/index.tsx",
-                    lineNumber: 26,
+                    lineNumber: 23,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/features/portfolio/components/overview/index.tsx",
-            lineNumber: 23,
+            lineNumber: 20,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/features/portfolio/components/overview/index.tsx",
-        lineNumber: 22,
+        lineNumber: 19,
         columnNumber: 5
     }, this);
 }
@@ -1631,9 +1631,9 @@ function ProfileCover() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["cn"])("aspect-2/1 border-x border-edge select-none sm:aspect-3/1", "relative flex flex-col items-center justify-center text-black dark:text-white", "bg-black/0.75 dark:bg-white/0.75"),
         style: {
-            backgroundImage: 'radial-gradient(circle, rgba(0,0,0,0.15) 1px, transparent 1px), radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px)',
-            backgroundSize: '20px 20px',
-            backgroundPosition: '0 0'
+            backgroundImage: "radial-gradient(circle, rgba(0,0,0,0.15) 1px, transparent 1px), radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px)",
+            backgroundSize: "20px 20px",
+            backgroundPosition: "0 0"
         },
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1641,8 +1641,8 @@ function ProfileCover() {
                 children: "Software Developer."
             }, void 0, false, {
                 fileName: "[project]/src/features/portfolio/components/profile-cover.tsx",
-                lineNumber: 19,
-                columnNumber: 9
+                lineNumber: 20,
+                columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "flex gap-4",
@@ -1654,13 +1654,13 @@ function ProfileCover() {
                             children: "Contact Me"
                         }, void 0, false, {
                             fileName: "[project]/src/features/portfolio/components/profile-cover.tsx",
-                            lineNumber: 22,
-                            columnNumber: 13
+                            lineNumber: 23,
+                            columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/features/portfolio/components/profile-cover.tsx",
-                        lineNumber: 21,
-                        columnNumber: 11
+                        lineNumber: 22,
+                        columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                         href: "/resume.pdf",
@@ -1671,19 +1671,19 @@ function ProfileCover() {
                             children: "Resume"
                         }, void 0, false, {
                             fileName: "[project]/src/features/portfolio/components/profile-cover.tsx",
-                            lineNumber: 25,
-                            columnNumber: 13
+                            lineNumber: 26,
+                            columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/features/portfolio/components/profile-cover.tsx",
-                        lineNumber: 24,
-                        columnNumber: 11
+                        lineNumber: 25,
+                        columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/features/portfolio/components/profile-cover.tsx",
-                lineNumber: 20,
-                columnNumber: 9
+                lineNumber: 21,
+                columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
@@ -2140,7 +2140,7 @@ function ProjectItem({ className, project }) {
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "flex-1 border-l border-dashed border-edge",
+                            className: "flex-1 border-l border-edge",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$collapsible$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["CollapsibleTrigger"], {
                                 className: "flex w-full items-center gap-2 p-4 pr-2 text-left",
                                 children: [
@@ -2406,7 +2406,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$portfolio
 ;
 function Projects() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "border-2 border-dashed border-border rounded-lg p-4",
+        className: "border-2 border-border rounded-lg p-4",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$portfolio$2f$components$2f$panel$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Panel"], {
             id: "projects",
             className: "border-x-0",
@@ -2484,7 +2484,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$portfolio
 ;
 function SocialLinksSection() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "border-2 border-dashed border-border rounded-lg p-4",
+        className: "border-2 border-border rounded-lg p-4",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$portfolio$2f$components$2f$panel$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Panel"], {
             className: "border-x-0",
             children: [

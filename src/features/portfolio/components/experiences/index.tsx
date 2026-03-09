@@ -6,7 +6,7 @@ import { ExperienceItem } from "./experience-item";
 
 export function Experiences() {
   return (
-    <div className="border-2 border-dashed border-border rounded-lg p-4">
+    <div className="border-2 border-border rounded-lg p-4">
       <Panel id="experience" className="border-x-0">
         <PanelHeader>
           <PanelTitle>Experience</PanelTitle>

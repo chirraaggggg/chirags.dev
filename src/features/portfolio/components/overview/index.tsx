@@ -16,7 +16,7 @@ import { JobItem } from "./job-item";
 
 export function Overview() {
   return (
-    <div className="border-2 border-dashed border-border rounded-lg p-4">
+    <div className="border-2 border-border rounded-lg p-4">
       <Panel className="border-x-0">
         <h2 className="sr-only">Overview</h2>
 
