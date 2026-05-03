@@ -83,11 +83,6 @@ export const UTILITY_LINKS: UtilityLink[] = [
     href: "/resume.pdf",
     icon: "resume",
   },
-  {
-    label: "Site ref",
-    href: "https://chirags.dev",
-    icon: "site",
-  },
 ];
 
 export const ABOUT_PARAGRAPHS = [

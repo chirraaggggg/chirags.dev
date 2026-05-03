@@ -48,7 +48,10 @@ export default function Page() {
             </h1>
 
             <p className="mt-6 text-[0.8rem] text-(--text-muted)">
-              {[HEADER_COPY.role, HEADER_COPY.location, HEADER_COPY.status].join(" · ")}
+              {[HEADER_COPY.role, HEADER_COPY.location].join(" · ")}
+            </p>
+            <p className="mt-2 text-[0.8rem] text-(--text-muted)">
+              {HEADER_COPY.status}
             </p>
 
             <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-[0.8rem]">
