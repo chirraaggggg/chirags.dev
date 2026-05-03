@@ -150,6 +150,7 @@ export const STACK_ITEMS: StackItem[] = [
 
 export const PORTFOLIO_COPY = {
   sections: {
+    headerKicker: "Portfolio",
     about: "About",
     experience: "Experience",
     projects: "Projects",
