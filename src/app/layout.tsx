@@ -1,15 +1,15 @@
 import "@/styles/globals.css";
 
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
+import { Geist_Mono } from "next/font/google";
+import { ThemeProvider } from "next-themes";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import type { WebSite, WithContext } from "schema-dts";
 
 import { ConsentManager } from "@/components/consent-manager";
 import { Providers } from "@/components/providers";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { META_THEME_COLORS, SITE_INFO } from "@/config/site";
-import { USER } from "@/features/portfolio/data/user";
-import { fontMono, fontSans } from "@/lib/fonts";
 
 function getWebSiteJsonLd(): WithContext<WebSite> {
   return {
@@ -17,24 +17,14 @@ function getWebSiteJsonLd(): WithContext<WebSite> {
     "@type": "WebSite",
     name: SITE_INFO.name,
     url: SITE_INFO.url,
-    alternateName: [USER.username],
   };
 }
 
-
-const darkModeScript = String.raw`
-  try {
-    if (localStorage.theme === 'dark' || ((!('theme' in localStorage) || localStorage.theme === 'system') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.querySelector('meta[name="theme-color"]').setAttribute('content', '${META_THEME_COLORS.dark}')
-    }
-  } catch (_) {}
-
-  try {
-    if (/(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)) {
-      document.documentElement.classList.add('os-macos')
-    }
-  } catch (_) {}
-`;
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-mono",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_INFO.url),
@@ -42,26 +32,17 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   title: {
-    template: `%s – ${SITE_INFO.name}`,
-    default: `Chirag Sharma – ${USER.jobTitle}`,
+    template: `%s · ${SITE_INFO.name}`,
+    default: `${SITE_INFO.name} · Software Developer`,
   },
   description: SITE_INFO.description,
   keywords: SITE_INFO.keywords,
-  authors: [
-    {
-      name: "ncdai",
-      url: SITE_INFO.url,
-    },
-  ],
-  creator: "ncdai",
+  authors: [{ name: SITE_INFO.name, url: SITE_INFO.url }],
+  creator: SITE_INFO.name,
   openGraph: {
     siteName: SITE_INFO.name,
     url: "/",
-    type: "profile",
-    firstName: USER.firstName,
-    lastName: USER.lastName,
-    username: USER.username,
-    gender: USER.gender,
+    type: "website",
     images: [
       {
         url: SITE_INFO.ogImage,
@@ -99,7 +80,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: META_THEME_COLORS.light,
+  themeColor: META_THEME_COLORS.dark,
 };
 
 export default function RootLayout({
@@ -108,17 +89,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${fontSans.variable} ${fontMono.variable}`}
-      suppressHydrationWarning
-    >
+    <html lang="en" className="dark" suppressHydrationWarning>
       <head>
-        <script
-          type="text/javascript"
-          dangerouslySetInnerHTML={{ __html: darkModeScript }}
-        />
-        <Script src={`data:text/javascript;base64,${btoa(darkModeScript)}`} />
+        <style>{
+          "@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap');"
+        }</style>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -127,12 +102,22 @@ export default function RootLayout({
         />
       </head>
 
-      <body>
-        <Providers>
-          <NuqsAdapter>
-            <ConsentManager>{children}</ConsentManager>
-          </NuqsAdapter>
-        </Providers>
+      <body className={geistMono.variable}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+          disableTransitionOnChange
+          enableColorScheme
+          storageKey="theme"
+        >
+          <Providers>
+            <NuqsAdapter>
+              <ConsentManager>{children}</ConsentManager>
+            </NuqsAdapter>
+          </Providers>
+          <ThemeToggle />
+        </ThemeProvider>
       </body>
     </html>
   );
