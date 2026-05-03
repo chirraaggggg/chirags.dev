@@ -1,55 +1,82 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import { useCallback } from "react";
-import { useHotkeys } from "react-hotkeys-hook";
 
-import { useSound } from "@/hooks/use-sound";
-
-import { MoonIcon } from "./animated-icons/moon";
-import { SunMediumIcon } from "./animated-icons/sun-medium";
-import { Tooltip, TooltipContent, TooltipTrigger } from "./base/ui/tooltip";
-import { Button } from "./ui/button";
-import { Kbd } from "./ui/kbd";
+import { PORTFOLIO_COPY } from "@/config/site";
 
 export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
-
-  const playClick = useSound("/audio/ui-sounds/click.wav");
-
-  const switchTheme = useCallback(() => {
-    playClick(0.5);
-    setTheme(resolvedTheme === "dark" ? "light" : "dark");
-  }, [resolvedTheme, setTheme, playClick]);
-
-  useHotkeys("d", switchTheme);
+  const currentTheme = resolvedTheme ?? PORTFOLIO_COPY.theme.dark;
+  const isLight = currentTheme === PORTFOLIO_COPY.theme.light;
 
   return (
-    <Tooltip>
-      <TooltipTrigger
-        render={
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={switchTheme}
-            // onClick={() => {
-            //   if (!document.startViewTransition) switchTheme();
-            //   document.startViewTransition(switchTheme);
-            // }}
-          />
-        }
-      >
-        <MoonIcon className="relative hidden after:absolute after:-inset-2 [html.dark_&]:block" />
-        <SunMediumIcon className="relative hidden after:absolute after:-inset-2 [html.light_&]:block" />
-        <span className="sr-only">Theme Toggle</span>
-      </TooltipTrigger>
+    <button
+      type="button"
+      onClick={() =>
+        setTheme(
+          currentTheme === PORTFOLIO_COPY.theme.dark
+            ? PORTFOLIO_COPY.theme.light
+            : PORTFOLIO_COPY.theme.dark
+        )
+      }
+      className="fixed right-6 top-6 z-50 text-[#666] transition-colors hover:text-(--text)"
+      aria-label={`Switch to ${
+        currentTheme === PORTFOLIO_COPY.theme.dark
+          ? PORTFOLIO_COPY.theme.light
+          : PORTFOLIO_COPY.theme.dark
+      } theme`}
+    >
+      {isLight ? <MoonIcon /> : <SunIcon />}
+    </button>
+  );
+}
 
-      <TooltipContent className="pr-2 pl-3">
-        <div className="flex items-center gap-3">
-          Toggle Mode
-          <Kbd>D</Kbd>
-        </div>
-      </TooltipContent>
-    </Tooltip>
+function SunIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width="20"
+      height="20"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="12" r="4" />
+      <line x1="12" y1="2" x2="12" y2="5" />
+      <line x1="12" y1="19" x2="12" y2="22" />
+      <line x1="2" y1="12" x2="5" y2="12" />
+      <line x1="19" y1="12" x2="22" y2="12" />
+      <line x1="4.2" y1="4.2" x2="6.4" y2="6.4" />
+      <line x1="17.6" y1="17.6" x2="19.8" y2="19.8" />
+      <line x1="4.2" y1="19.8" x2="6.4" y2="17.6" />
+      <line x1="17.6" y1="6.4" x2="19.8" y2="4.2" />
+    </svg>
+  );
+}
+
+function MoonIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width="20"
+      height="20"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <defs>
+        <mask id="moon-mask">
+          <rect width="24" height="24" fill="white" />
+          <circle cx="15" cy="10" r="7" fill="black" />
+        </mask>
+      </defs>
+      <circle cx="11" cy="12" r="7" mask="url(#moon-mask)" fill="none" />
+    </svg>
   );
 }
