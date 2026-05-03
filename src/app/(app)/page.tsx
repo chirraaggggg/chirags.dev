@@ -14,7 +14,6 @@ import {
   UTILITY_LINKS,
   type UtilityLink,
 } from "@/config/site";
-import { GithubHeatmap } from "@/features/github/GithubHeatmap";
 import type { SocialLink } from "@/types/portfolio";
 
 export default function Page() {
@@ -122,9 +121,6 @@ export default function Page() {
           </p>
         </Section>
 
-        <Section title={PORTFOLIO_COPY.sections.github}>
-          <GithubHeatmap />
-        </Section>
       </main>
     </>
   );
