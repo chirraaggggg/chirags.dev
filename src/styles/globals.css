@@ -53,6 +53,7 @@
 
   --font-sans: var(--font-stack);
   --font-mono: var(--font-stack);
+  --font-heading: var(--font-stack);
 
   --shadow-popover: var(--shadow-popover);
 
@@ -118,8 +119,8 @@
   --border: #e0e0de;
   --accent: #0a0a0a;
   --heading: #0a0a0a;
-  --font-stack: var(--font-mono), "JetBrains Mono", "Fira Code", monospace;
-  --font-heading: "Playfair Display", Georgia, serif;
+  --font-stack: var(--font-inter), "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-heading: var(--font-inter), "Inter", "Helvetica Neue", Arial, sans-serif;
 
   --background: var(--bg);
   --foreground: var(--text);
@@ -151,17 +152,17 @@
 }
 
 .dark {
-  --bg: #0c0c0c;
-  --bg-subtle: #141414;
+  --bg: #0a0a0a;
+  --bg-subtle: #111111;
   --text: #c9c9c9;
-  --text-muted: #555555;
+  --text-muted: #666666;
   --muted: var(--text-muted);
   --muted-foreground: var(--text-muted);
-  --border: #2a2a2a;
+  --border: #1e1e1e;
   --accent: #e8e8e8;
   --heading: #ffffff;
-  --font-stack: var(--font-mono), "JetBrains Mono", "Fira Code", monospace;
-  --font-heading: "Playfair Display", Georgia, serif;
+  --font-stack: var(--font-inter), "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-heading: var(--font-inter), "Inter", "Helvetica Neue", Arial, sans-serif;
 
   --background: var(--bg);
   --foreground: var(--text);
@@ -222,5 +223,16 @@
 
   [id] {
     @apply scroll-mt-18;
+  }
+}
+
+@layer components {
+  pre.shiki {
+    background-color: var(--code) !important;
+    @apply my-[1.25em] overflow-x-auto rounded-xl border border-edge p-4 text-sm;
+  }
+
+  pre.shiki code {
+    @apply bg-transparent p-0;
   }
 }

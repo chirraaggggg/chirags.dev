@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 
 import type { Metadata, Viewport } from "next";
-import { Geist_Mono } from "next/font/google";
+import { Geist_Mono, Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import type { WebSite, WithContext } from "schema-dts";
@@ -19,6 +19,12 @@ function getWebSiteJsonLd(): WithContext<WebSite> {
     url: SITE_INFO.url,
   };
 }
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 const geistMono = Geist_Mono({
   subsets: ["latin"],
@@ -91,9 +97,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <head>
-        <style>{
-          "@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap');"
-        }</style>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -102,7 +105,7 @@ export default function RootLayout({
         />
       </head>
 
-      <body className={geistMono.variable}>
+      <body className={`${inter.variable} ${geistMono.variable}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
