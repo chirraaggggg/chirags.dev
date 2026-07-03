@@ -12,7 +12,7 @@ import { Header } from "@/components/portfolio/header";
 import { AboutSection } from "@/components/portfolio/about-section";
 import { TimelineSection } from "@/components/portfolio/timeline-section";
 import { ProjectsSection } from "@/components/portfolio/projects-section";
-import { ChatWidget } from "@/components/portfolio/chat-widget";
+
 
 function getPageJsonLd(): WithContext<PageSchema> {
   return {
@@ -70,8 +70,6 @@ export default function Page() {
           label={PORTFOLIO_COPY.sections.projects}
         />
       </main>
-
-      <ChatWidget />
     </>
   );
 }
