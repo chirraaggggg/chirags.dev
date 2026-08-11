@@ -1,18 +1,13 @@
-import type { WithContext, ProfilePage as PageSchema } from "schema-dts";
+import type { ProfilePage as PageSchema, WithContext } from "schema-dts";
 
-import {
-  ABOUT_PARAGRAPHS,
-  EXPERIENCE_ITEMS,
-  HEADER_COPY,
-  PORTFOLIO_COPY,
-  PROJECT_ITEMS,
-  SITE_INFO,
-} from "@/config/site";
-import { Header } from "@/components/portfolio/header";
-import { AboutSection } from "@/components/portfolio/about-section";
-import { TimelineSection } from "@/components/portfolio/timeline-section";
-import { ProjectsSection } from "@/components/portfolio/projects-section";
-
+import { AboutSkills } from "@/components/retro/about-skills";
+import { BlueprintBackground } from "@/components/retro/blueprint-background";
+import { Experience } from "@/components/retro/experience";
+import { RetroFooter } from "@/components/retro/footer";
+import { Hero } from "@/components/retro/hero";
+import { RetroNav } from "@/components/retro/retro-nav";
+import { SideQuests } from "@/components/retro/side-quests";
+import { HEADER_COPY, SITE_INFO } from "@/config/site";
 
 function getPageJsonLd(): WithContext<PageSchema> {
   return {
@@ -29,16 +24,6 @@ function getPageJsonLd(): WithContext<PageSchema> {
   };
 }
 
-const timelineItems = EXPERIENCE_ITEMS.map((exp) => ({
-  role: exp.role,
-  company: exp.company,
-  period: exp.period,
-  description:
-    exp.type === "intern"
-      ? "Developed and maintained full-stack web applications using React, Node.js, and MongoDB. Gained hands-on experience across the entire tech stack in an agile environment."
-      : "Building custom web applications for clients across various industries. Providing end-to-end development from concept to deployment with modern JavaScript technologies.",
-}));
-
 export default function Page() {
   return (
     <>
@@ -49,26 +34,27 @@ export default function Page() {
         }}
       />
 
-      <main className="mx-auto max-w-[640px] px-6 pb-32 pt-24 lg:px-0 xl:max-w-[700px]">
-        <Header name={HEADER_COPY.name} />
+      <BlueprintBackground />
+      <RetroNav />
 
-        <div className="my-24 border-b border-white/10" />
+      <main className="relative">
+        <Hero />
 
-        <AboutSection paragraphs={ABOUT_PARAGRAPHS} />
+        <div className="mx-auto flex max-w-5xl flex-col gap-14 px-4 sm:px-6">
+          <section id="about" className="scroll-mt-28">
+            <AboutSkills />
+          </section>
 
-        <div className="my-24 border-b border-white/10" />
+          <section id="experience" className="scroll-mt-28">
+            <Experience />
+          </section>
 
-        <TimelineSection
-          items={timelineItems}
-          label={PORTFOLIO_COPY.sections.experience}
-        />
+          <section id="side-quests" className="scroll-mt-28">
+            <SideQuests />
+          </section>
+        </div>
 
-        <div className="my-24 border-b border-white/10" />
-
-        <ProjectsSection
-          projects={PROJECT_ITEMS}
-          label={PORTFOLIO_COPY.sections.projects}
-        />
+        <RetroFooter />
       </main>
     </>
   );

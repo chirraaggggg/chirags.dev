@@ -1,14 +1,20 @@
 import "@/styles/globals.css";
 
 import type { Metadata, Viewport } from "next";
-import { Geist_Mono, Inter } from "next/font/google";
+import {
+  Caveat,
+  Geist_Mono,
+  Inter,
+  JetBrains_Mono,
+  Space_Grotesk,
+} from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import type { WebSite, WithContext } from "schema-dts";
 
 import { ConsentManager } from "@/components/consent-manager";
 import { Providers } from "@/components/providers";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { SmoothScroll } from "@/components/smooth-scroll";
 import { META_THEME_COLORS, SITE_INFO } from "@/config/site";
 
 function getWebSiteJsonLd(): WithContext<WebSite> {
@@ -30,6 +36,27 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-mono",
+});
+
+const displayFont = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["500", "700"],
+  display: "swap",
+  variable: "--font-display-grotesk",
+});
+
+const handFont = Caveat({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  display: "swap",
+  variable: "--font-hand-script",
+});
+
+const terminalFont = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  display: "swap",
+  variable: "--font-terminal-mono",
 });
 
 export const metadata: Metadata = {
@@ -86,7 +113,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: META_THEME_COLORS.dark,
+  themeColor: META_THEME_COLORS.light,
 };
 
 export default function RootLayout({
@@ -95,7 +122,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
@@ -105,21 +132,24 @@ export default function RootLayout({
         />
       </head>
 
-      <body className={`${inter.variable} ${geistMono.variable}`}>
+      <body
+        className={`${inter.variable} ${geistMono.variable} ${displayFont.variable} ${handFont.variable} ${terminalFont.variable}`}
+      >
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           enableSystem={false}
           disableTransitionOnChange
           enableColorScheme
           storageKey="theme"
         >
-          <Providers>
-            <NuqsAdapter>
-              <ConsentManager>{children}</ConsentManager>
-            </NuqsAdapter>
-          </Providers>
-          <ThemeToggle />
+          <SmoothScroll>
+            <Providers>
+              <NuqsAdapter>
+                <ConsentManager>{children}</ConsentManager>
+              </NuqsAdapter>
+            </Providers>
+          </SmoothScroll>
         </ThemeProvider>
       </body>
     </html>

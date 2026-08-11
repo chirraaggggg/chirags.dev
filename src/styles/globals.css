@@ -55,6 +55,10 @@
   --font-mono: var(--font-stack);
   --font-heading: var(--font-stack);
 
+  --font-display: var(--font-display-grotesk);
+  --font-hand: var(--font-hand-script);
+  --font-terminal: var(--font-terminal-mono);
+
   --shadow-popover: var(--shadow-popover);
 
   --animate-fade-in: fade-in var(--tw-duration, 200ms) ease-out;
@@ -120,7 +124,8 @@
   --accent: #0a0a0a;
   --heading: #0a0a0a;
   --font-stack: var(--font-inter), "Inter", "Helvetica Neue", Arial, sans-serif;
-  --font-heading: var(--font-inter), "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-heading:
+    var(--font-inter), "Inter", "Helvetica Neue", Arial, sans-serif;
 
   --background: var(--bg);
   --foreground: var(--text);
@@ -162,7 +167,8 @@
   --accent: #e8e8e8;
   --heading: #ffffff;
   --font-stack: var(--font-inter), "Inter", "Helvetica Neue", Arial, sans-serif;
-  --font-heading: var(--font-inter), "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-heading:
+    var(--font-inter), "Inter", "Helvetica Neue", Arial, sans-serif;
 
   --background: var(--bg);
   --foreground: var(--text);
@@ -193,6 +199,32 @@
   --shadow-popover: 0 6px 24px rgba(0, 0, 0, 0.25);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* Lenis smooth-scroll structural styles */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
 @layer base {
   *,
   ::after,
@@ -212,13 +244,17 @@
     text-rendering: optimizeLegibility;
     font-size: 0.875rem;
     line-height: 1.8;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
   }
 
   a,
   button,
   [role="button"] {
-    transition: color 0.15s ease, opacity 0.15s ease;
+    transition:
+      color 0.15s ease,
+      opacity 0.15s ease;
   }
 
   [id] {
