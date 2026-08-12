@@ -64,7 +64,7 @@ export function Experience() {
   return (
     <RetroWindow
       title={RETRO.experience.heading}
-      titleClassName="font-sans text-sm font-extrabold tracking-wide"
+      titleClassName="font-pixel text-xs uppercase tracking-normal"
       bodyClassName="p-7 sm:p-12"
     >
       <ul>

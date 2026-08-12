@@ -6,6 +6,7 @@ import {
   Geist_Mono,
   Inter,
   JetBrains_Mono,
+  Press_Start_2P,
   Space_Grotesk,
 } from "next/font/google";
 import { ThemeProvider } from "next-themes";
@@ -57,6 +58,13 @@ const terminalFont = JetBrains_Mono({
   weight: ["400", "500", "700"],
   display: "swap",
   variable: "--font-terminal-mono",
+});
+
+const pixelFont = Press_Start_2P({
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+  variable: "--font-pixel-2p",
 });
 
 export const metadata: Metadata = {
@@ -133,7 +141,7 @@ export default function RootLayout({
       </head>
 
       <body
-        className={`${inter.variable} ${geistMono.variable} ${displayFont.variable} ${handFont.variable} ${terminalFont.variable}`}
+        className={`${inter.variable} ${geistMono.variable} ${displayFont.variable} ${handFont.variable} ${terminalFont.variable} ${pixelFont.variable}`}
       >
         <ThemeProvider
           attribute="class"

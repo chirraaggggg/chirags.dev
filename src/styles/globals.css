@@ -58,6 +58,7 @@
   --font-display: var(--font-display-grotesk);
   --font-hand: var(--font-hand-script);
   --font-terminal: var(--font-terminal-mono);
+  --font-pixel: var(--font-pixel-2p);
 
   --shadow-popover: var(--shadow-popover);
 
@@ -71,6 +72,9 @@
   --animate-collapsible-fade-up:
     collapsible-up var(--tw-duration, 200ms) ease-out,
     fade-out var(--tw-duration, 200ms) ease-out;
+
+  --animate-pop-in-tag:
+    pop-in-tag 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
 
   @keyframes fade-in {
     from {
@@ -270,5 +274,65 @@ html.lenis body {
 
   pre.shiki code {
     @apply bg-transparent p-0;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Blueprint background — mirrors itspgiri.com's `.grid-bg` exactly:
+ * two faded technical-drawing SVG layers (600×600 tiles at top-right and
+ * bottom-left, radial-fade stroke, 1.5px lines, arcs, degree labels) plus a
+ * graph-paper overlay (`::before`) with 10px minor / 40px major lines.
+ * Mobile (<900px) swaps in the darker SVG variants without the labels,
+ * exactly like the reference site.
+ * ------------------------------------------------------------------------ */
+.retro-grid-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  pointer-events: none;
+  overflow: hidden;
+  will-change: transform;
+  transform: translateZ(0);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cdefs%3E%3CradialGradient id='fade' cx='600' cy='0' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='30%25' stop-color='rgba(0,0,0,0.06)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,0,0,0)'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cg stroke='url(%23fade)' stroke-width='1.5' fill='none'%3E%3Cline x1='600' y1='0' x2='600' y2='600'/%3E%3Cline x1='600' y1='0' x2='0' y2='0'/%3E%3Cline x1='600' y1='0' x2='0' y2='600'/%3E%3Cpath d='M 200 0 A 400 400 0 0 0 600 400'/%3E%3Cpath d='M 350 0 A 250 250 0 0 0 423.22 176.78'/%3E%3Ctext x='450' y='100' fill='url(%23fade)' stroke='none' font-family='sans-serif' font-size='16'%3E45%C2%B0%3C/text%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cdefs%3E%3CradialGradient id='fade' cx='0' cy='600' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='30%25' stop-color='rgba(0,0,0,0.06)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,0,0,0)'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cg stroke='url(%23fade)' stroke-width='1.5' fill='none'%3E%3Cline x1='0' y1='600' x2='600' y2='600'/%3E%3Cline x1='0' y1='600' x2='0' y2='0'/%3E%3Cline x1='0' y1='600' x2='346.41' y2='0'/%3E%3Cpath d='M 400 600 A 400 400 0 0 0 0 200'/%3E%3Cpath d='M 250 600 A 250 250 0 0 0 125 383.49'/%3E%3Ctext x='170' y='520' fill='url(%23fade)' stroke='none' font-family='sans-serif' font-size='16'%3E60%C2%B0%3C/text%3E%3C/g%3E%3C/svg%3E");
+  background-position: 100% 0, 0 100%;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 600px 600px, 600px 600px;
+}
+
+.retro-grid-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(90deg, #0000000f 0 1px, #0000 1px 10px),
+    repeating-linear-gradient(90deg, #0000001f 0 1px, #0000 1px 40px),
+    repeating-linear-gradient(90deg, #0000000f 0 1px, #0000 1px 10px),
+    repeating-linear-gradient(90deg, #0000001f 0 1px, #0000 1px 40px),
+    repeating-linear-gradient(#0000000f 0 1px, #0000 1px 10px),
+    repeating-linear-gradient(#0000001f 0 1px, #0000 1px 40px),
+    repeating-linear-gradient(#0000000f 0 1px, #0000 1px 10px),
+    repeating-linear-gradient(#0000001f 0 1px, #0000 1px 40px);
+  background-position: 0 0, 0 0, 0 100%, 0 100%, 0 0, 0 0, 100% 0, 100% 0;
+  background-repeat: no-repeat;
+  background-size: 100% 8px, 100% 16px, 100% 8px, 100% 16px, 8px 100%, 16px 100%, 8px 100%, 16px 100%;
+}
+
+@media (max-width: 900px) {
+  .retro-grid-bg {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cdefs%3E%3CradialGradient id='fade' cx='600' cy='0' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='30%25' stop-color='rgba(0,0,0,0.1)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,0,0,0)'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cg stroke='url(%23fade)' stroke-width='1.5' fill='none'%3E%3Cline x1='600' y1='0' x2='600' y2='600'/%3E%3Cline x1='600' y1='0' x2='0' y2='0'/%3E%3Cline x1='600' y1='0' x2='0' y2='600'/%3E%3Cpath d='M 200 0 A 400 400 0 0 0 600 400'/%3E%3Cpath d='M 350 0 A 250 250 0 0 0 423.22 176.78'/%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cdefs%3E%3CradialGradient id='fade' cx='0' cy='600' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='30%25' stop-color='rgba(0,0,0,0.1)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,0,0,0)'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cg stroke='url(%23fade)' stroke-width='1.5' fill='none'%3E%3Cline x1='0' y1='600' x2='600' y2='600'/%3E%3Cline x1='0' y1='600' x2='0' y2='0'/%3E%3Cline x1='0' y1='600' x2='346.41' y2='0'/%3E%3Cpath d='M 400 600 A 400 400 0 0 0 0 200'/%3E%3Cpath d='M 250 600 A 250 250 0 0 0 125 383.49'/%3E%3C/g%3E%3C/svg%3E");
+  }
+}
+
+/* Sticky-note badges pop in with a springy bounce, like the reference site. */
+@keyframes pop-in-tag {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
   }
 }

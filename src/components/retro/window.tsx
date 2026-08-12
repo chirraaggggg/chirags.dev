@@ -66,7 +66,7 @@ export function TerminalHeading({
   return (
     <h2
       className={cn(
-        "flex items-center gap-2.5 font-sans text-lg font-extrabold tracking-tight text-black",
+        "flex items-center gap-2.5 font-pixel text-sm uppercase tracking-normal text-[#111]",
         className,
       )}
     >

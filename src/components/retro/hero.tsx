@@ -28,15 +28,19 @@ function StickyNote({
   label,
   color,
   className,
+  delay,
 }: {
   label: string;
   color: string;
   className?: string;
+  /** Animation delay before the note pops in (ms). */
+  delay?: number;
 }) {
   return (
     <span
+      style={delay ? { animationDelay: `${delay}ms` } : undefined}
       className={cn(
-        "inline-block rounded-sm border-2 border-black px-3 py-2 font-sans text-[11px] font-extrabold tracking-wide text-white shadow-[3px_3px_0_0_rgba(0,0,0,0.9)] select-none sm:text-xs",
+        "inline-block animate-pop-in-tag rounded-sm border-2 border-black px-3 py-2 font-sans text-[11px] font-extrabold tracking-wide text-white shadow-[3px_3px_0_0_rgba(0,0,0,0.9)] select-none sm:text-xs",
         color,
         className,
       )}
@@ -53,32 +57,37 @@ export function Hero() {
       className="relative scroll-mt-24 px-4 pt-32 pb-16 sm:px-6"
     >
       <div className="relative mx-auto flex max-w-4xl flex-col items-center text-center">
-        {/* Sticky note badges */}
-        <StickyNote
-          label={RETRO.hero.badgeBlue}
-          color="bg-[#4b7bec]"
-          className="absolute top-8 left-0 -rotate-6 sm:top-2 sm:-left-8"
-        />
-        <StickyNote
-          label={RETRO.hero.badgeRed}
-          color="bg-[#ff5f57]"
-          className="absolute top-2 right-0 rotate-6 sm:right-[-1.5rem]"
-        />
-        <StickyNote
-          label={RETRO.hero.badgeYellow}
-          color="bg-[#febc2e] text-black"
-          className="absolute -bottom-10 left-6 -rotate-3 sm:bottom-[-3.5rem] sm:left-16"
-        />
-
         {/* Handwritten intro */}
         <p className="font-hand text-3xl font-semibold text-black/80 sm:text-4xl">
           {RETRO.hero.script}
         </p>
 
-        {/* Display name — bold geometric sans */}
-        <h1 className="mt-3 font-display text-[clamp(3rem,11vw,7rem)] leading-[1.02] font-bold tracking-tight text-black">
-          {RETRO.hero.firstName}
-        </h1>
+        {/* Display name — pixel/blocky Press Start 2P, like the reference site */}
+        <div className="relative z-10 mt-3 inline-block">
+          {/* Sticky note badges hugging the name (top-left / top-right / bottom-left) */}
+          <StickyNote
+            label={RETRO.hero.badgeBlue}
+            color="bg-[#4b7bec]"
+            delay={200}
+            className="absolute -top-7 -left-3 -rotate-6 sm:-top-12 sm:-left-16"
+          />
+          <StickyNote
+            label={RETRO.hero.badgeRed}
+            color="bg-[#ff5f57]"
+            delay={500}
+            className="absolute -top-3 -right-2 rotate-[12deg] sm:-top-5 sm:-right-32"
+          />
+          <StickyNote
+            label={RETRO.hero.badgeYellow}
+            color="bg-[#febc2e] text-black"
+            delay={800}
+            className="absolute -bottom-9 -left-2 rotate-5 sm:-bottom-12 sm:-left-9"
+          />
+
+          <h1 className="font-pixel text-[clamp(2.5rem,10vw,4.5rem)] leading-[1.1] font-bold tracking-[-3px] text-[#111] [text-shadow:6px_6px_#e0e0e0]">
+            {RETRO.hero.firstName}
+          </h1>
+        </div>
 
         {/* Tagline */}
         <p className="mt-8 max-w-2xl font-sans text-[17px] leading-[1.7] font-medium text-black/70">

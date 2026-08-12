@@ -23,9 +23,9 @@ export const RETRO = {
   hero: {
     script: "Hi, I am",
     firstName: USER.firstName.toUpperCase(),
-    badgeBlue: "SOFTWARE DEV",
-    badgeRed: "FULL-STACK",
-    badgeYellow: "DSA GRINDER",
+    badgeBlue: "Software Developer",
+    badgeRed: "Content Creator",
+    badgeYellow: "Full-Stack Dev",
     tagline:
       "Design-minded software engineer & data science enthusiast building clean, user-centric products with modern JavaScript and ML.",
     liveOn: "LIVE ON",
