@@ -41,18 +41,28 @@ export const RETRO = {
     liveOnLinks: [
       {
         label: "Instagram",
-        href: "https://instagram.com/chirraaggggg",
+        href: "https://www.instagram.com/chirraaggggg/",
         Icon: "instagram",
       },
       {
-        label: "YouTube",
-        href: "https://youtube.com/@chirraaggggg",
-        Icon: "youtube",
+        label: "Twitter",
+        href: "https://x.com/chiragdotxyz",
+        Icon: "twitter",
       },
       {
         label: "LinkedIn",
-        href: "https://www.linkedin.com/in/chirags920/",
+        href: "https://www.linkedin.com/in/sharmachirag17/",
         Icon: "linkedin",
+      },
+      {
+        label: "Email",
+        href: `mailto:${decodeEmail(USER.email)}`,
+        Icon: "email",
+      },
+      {
+        label: "LeetCode",
+        href: "https://leetcode.com/u/chirraaggggg/",
+        Icon: "leetcode",
       },
     ],
     talkTo: {
@@ -78,8 +88,14 @@ export const RETRO = {
       chevronColor: "#22c55e",
       label: "LS -L ./SKILLS",
       groups: [
-        { category: "Languages", pills: ["JavaScript", "TypeScript", "Python", "C++", "Java"] },
-        { category: "Cloud & DevOps", pills: ["GCP", "Docker", "Jenkins", "K8s", "Azure"] },
+        {
+          category: "Languages",
+          pills: ["JavaScript", "TypeScript", "Python", "C++", "Java"],
+        },
+        {
+          category: "Cloud & DevOps",
+          pills: ["GCP", "Docker", "Jenkins", "K8s", "Azure"],
+        },
         {
           category: "Frameworks & Tools",
           pills: ["React", "Next.js", "Node.js", "REST APIs", "MongoDB"],
@@ -94,7 +110,10 @@ export const RETRO = {
     items: EXPERIENCE_ITEMS.map((item) => ({
       role: item.role,
       company: item.company,
-      focus: item.type === "intern" ? "MERN stack · agile team" : "End-to-end product development",
+      focus:
+        item.type === "intern"
+          ? "MERN stack · agile team"
+          : "End-to-end product development",
       dates: item.period,
       bullets: [
         "Built and shipped production features end-to-end, from design to deployment.",
@@ -176,7 +195,8 @@ export const RETRO = {
       })),
     },
     collabs: {
-      description: "Some of the amazing brands I've had the pleasure of partnering with.",
+      description:
+        "Some of the amazing brands I've had the pleasure of partnering with.",
       items: [
         { name: "Brand One", href: "#" },
         { name: "Brand Two", href: "#" },
@@ -206,26 +226,30 @@ export const RETRO = {
     credit: `Created and designed by ${USER.firstName} ${USER.lastName}`,
     rights: "All rights reserved ©",
     socials: [
-      { label: "Email", href: `mailto:${decodeEmail(USER.email)}`, Icon: "email" },
+      {
+        label: "Email",
+        href: `mailto:${decodeEmail(USER.email)}`,
+        Icon: "email",
+      },
       {
         label: "Instagram",
-        href: "https://instagram.com/chirraaggggg",
+        href: "https://www.instagram.com/chirraaggggg/",
         Icon: "instagram",
       },
       {
-        label: "YouTube",
-        href: "https://youtube.com/@chirraaggggg",
-        Icon: "youtube",
-      },
-      {
         label: "Twitter",
-        href: "https://x.com/chiragiscoding",
+        href: "https://x.com/chiragdotxyz",
         Icon: "twitter",
       },
       {
         label: "LinkedIn",
-        href: "https://www.linkedin.com/in/chirags920/",
+        href: "https://www.linkedin.com/in/sharmachirag17/",
         Icon: "linkedin",
+      },
+      {
+        label: "LeetCode",
+        href: "https://leetcode.com/u/chirraaggggg/",
+        Icon: "leetcode",
       },
     ],
   },

@@ -1,17 +1,21 @@
 import {
   InstagramIcon,
   LinkedinIcon,
-  YoutubeIcon,
+  MailIcon,
+  TwitterIcon,
 } from "lucide-react";
 
+import { Icons } from "@/components/icons";
 import { RETRO } from "@/config/retro";
-import { USER } from "@/features/portfolio/data/user";
-import { decodeEmail } from "@/utils/string";
 
-const LIVE_ON_ICONS: Record<string, typeof InstagramIcon> = {
+type LiveOnIcon = React.ComponentType<React.SVGProps<SVGSVGElement>>;
+
+const LIVE_ON_ICONS: Record<string, LiveOnIcon> = {
   instagram: InstagramIcon,
-  youtube: YoutubeIcon,
+  twitter: TwitterIcon,
   linkedin: LinkedinIcon,
+  email: MailIcon,
+  leetcode: Icons.leetcode,
 };
 
 /** White pixel cursor that sits beside the tags, exactly like the reference. */
@@ -112,8 +116,12 @@ export function Hero() {
                   <a
                     key={label}
                     href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    target={href.startsWith("http") ? "_blank" : undefined}
+                    rel={
+                      href.startsWith("http")
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
                     className="social-icon"
                     aria-label={label}
                   >

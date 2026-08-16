@@ -666,6 +666,10 @@ html.lenis body {
   font-size: 42px;
   font-weight: 600;
   transform: rotate(-6deg);
+  /* Keep the handwritten intro above the floating tags (z-index 15) so the
+     "Software Developer" badge never covers it. */
+  position: relative;
+  z-index: 20;
 }
 
 @keyframes popup-greeting {

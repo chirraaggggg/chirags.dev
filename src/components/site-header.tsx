@@ -3,6 +3,7 @@ import { Github, Linkedin, XIcon } from "lucide-react";
 import Link from "next/link";
 
 import { DesktopNav } from "@/components/desktop-nav";
+import { Icons } from "@/components/icons";
 import { MAIN_NAV } from "@/config/site";
 import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links";
 import { cn } from "@/lib/utils";
@@ -11,7 +12,7 @@ import { SiteHeaderWrapper } from "./site-header-wrapper";
 import { ThemeToggle } from "./theme-toggle";
 
 const MobileNav = dynamic(() =>
-  import("@/components/mobile-nav").then((mod) => mod.MobileNav)
+  import("@/components/mobile-nav").then((mod) => mod.MobileNav),
 );
 
 export function SiteHeader() {
@@ -21,7 +22,7 @@ export function SiteHeader() {
         "sticky top-0 z-50 max-w-screen overflow-x-hidden bg-background px-2 pt-2",
         "data-[affix=true]:shadow-[0_0_16px_0_black]/8 dark:data-[affix=true]:shadow-[0_0_16px_0_black]",
         "not-dark:data-[affix=true]:**:data-header-container:after:bg-border",
-        "transition-shadow duration-300"
+        "transition-shadow duration-300",
       )}
     >
       <div
@@ -41,6 +42,8 @@ export function SiteHeader() {
               Icon = Github;
             } else if (social.title === "LinkedIn") {
               Icon = Linkedin;
+            } else if (social.title === "LeetCode") {
+              Icon = Icons.leetcode;
             }
             return (
               <Link

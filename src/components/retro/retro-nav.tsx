@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { RETRO } from "@/config/retro";
@@ -41,10 +41,42 @@ function EnterIcon() {
 
 export function RetroNav() {
   const pathname = usePathname();
+  const router = useRouter();
   const [activeId, setActiveId] = useState<string>("home");
   const [mobileMoreOpen, setMobileMoreOpen] = useState(false);
 
   const isProjectsPage = pathname === "/projects";
+
+  /**
+   * HOME / ABOUT: on the home page we scroll in place; from /projects we
+   * navigate back to the home page and then scroll to the target section once
+   * it has mounted.
+   */
+  const goToSection = (id: string) => {
+    if (!isProjectsPage) {
+      setActiveId(id);
+      if (id === "home") {
+        window.scrollTo({ top: 0 });
+      } else {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      }
+      return;
+    }
+
+    router.push(id === "home" ? "/" : "/#about");
+    if (id !== "home") {
+      let attempts = 0;
+      const tryScroll = () => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        } else if (attempts++ < 60) {
+          setTimeout(tryScroll, 50);
+        }
+      };
+      setTimeout(tryScroll, 100);
+    }
+  };
 
   useEffect(() => {
     const sections = SCROLL_IDS.map((id) => document.getElementById(id)).filter(
@@ -72,17 +104,22 @@ export function RetroNav() {
   }, [pathname]);
 
   const keyBase =
-    "kbd-key" +
-    (isProjectsPage ? "" : activeId === "home" ? " active" : "");
+    "kbd-key" + (isProjectsPage ? "" : activeId === "home" ? " active" : "");
 
   return (
     <nav className="glass-nav-container" aria-label="Primary">
       <div className="keyboard-base">
-        {/* ESC — scroll to top */}
+        {/* ESC — return to the previous view: scroll top on home, go home from /projects */}
         <div
           className="kbd-key esc-key hide-on-mobile"
           style={{ cursor: "pointer", zIndex: 100 }}
-          onClick={() => window.scrollTo({ top: 0 })}
+          onClick={() => {
+            if (isProjectsPage) {
+              router.push("/");
+            } else {
+              window.scrollTo({ top: 0 });
+            }
+          }}
         >
           ESC
         </div>
@@ -97,8 +134,7 @@ export function RetroNav() {
           )}
           onClick={(e) => {
             e.preventDefault();
-            setActiveId("home");
-            window.scrollTo({ top: 0 });
+            goToSection("home");
           }}
         >
           Home
@@ -113,10 +149,7 @@ export function RetroNav() {
           )}
           onClick={(e) => {
             e.preventDefault();
-            setActiveId("about");
-            document
-              .getElementById("about")
-              ?.scrollIntoView({ behavior: "smooth" });
+            goToSection("about");
           }}
         >
           About
@@ -126,7 +159,10 @@ export function RetroNav() {
         <div className="dropdown-container">
           <Link
             href="/projects"
-            className={cn("kbd-key side-quests-btn", isProjectsPage && "active")}
+            className={cn(
+              "kbd-key side-quests-btn",
+              isProjectsPage && "active",
+            )}
           >
             Side Quests
           </Link>
@@ -179,9 +215,7 @@ export function RetroNav() {
             More
             <EnterIcon />
           </button>
-          <div
-            className={cn("subnav-dropdown-menu", mobileMoreOpen && "show")}
-          >
+          <div className={cn("subnav-dropdown-menu", mobileMoreOpen && "show")}>
             <a
               href="#links"
               className="subnav-dropdown-item"

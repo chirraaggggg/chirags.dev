@@ -15,7 +15,7 @@ export const USER = {
   ],
   address: "Gurugram, Haryana, India",
   phoneNumber: "KzkxOTIwNTgzMjA5Mw==", // E.164 format, base64 encoded (https://t.io.vn/base64-string-converter)
-  email: "aWFtY2hyYWcxODJAZ21haWwuY29t", // base64 encoded
+  email: "YnVzaW5lc3N3aXRoY2hpcmFnc2hhcm1hQGdtYWlsLmNvbQ==", // base64 encoded
   website: "https://chirags.dev",
   jobTitle: "Software Developer",
   jobs: [] as Array<{ title: string; company: string; website: string }>,

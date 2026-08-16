@@ -1,5 +1,6 @@
 import { Github, Linkedin, XIcon } from "lucide-react";
 
+import { Icons } from "@/components/icons";
 import type { SocialLink } from "@/features/portfolio/types/social-links";
 
 export function SocialLinkItem({ title, href }: SocialLink) {
@@ -10,6 +11,8 @@ export function SocialLinkItem({ title, href }: SocialLink) {
     Icon = Github;
   } else if (title === "LinkedIn") {
     Icon = Linkedin;
+  } else if (title === "LeetCode") {
+    Icon = Icons.leetcode;
   }
 
   return (

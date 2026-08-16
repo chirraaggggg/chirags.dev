@@ -3,17 +3,19 @@ import {
   LinkedinIcon,
   MailIcon,
   TwitterIcon,
-  YoutubeIcon,
 } from "lucide-react";
 
+import { Icons } from "@/components/icons";
 import { RETRO } from "@/config/retro";
 
-const ICONS: Record<string, typeof MailIcon> = {
+type SocialIcon = React.ComponentType<React.SVGProps<SVGSVGElement>>;
+
+const ICONS: Record<string, SocialIcon> = {
   email: MailIcon,
   instagram: InstagramIcon,
-  youtube: YoutubeIcon,
   twitter: TwitterIcon,
   linkedin: LinkedinIcon,
+  leetcode: Icons.leetcode,
 };
 
 export function RetroFooter() {

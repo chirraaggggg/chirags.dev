@@ -1,5 +1,6 @@
 import { Github, Linkedin, XIcon } from "lucide-react";
 
+import { Icons } from "@/components/icons";
 import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links";
 
 import { Panel, PanelContent, PanelHeader, PanelTitle } from "./panel";
@@ -21,6 +22,8 @@ export function SocialLinksSection() {
               Icon = Github;
             } else if (social.title === "LinkedIn") {
               Icon = Linkedin;
+            } else if (social.title === "LeetCode") {
+              Icon = Icons.leetcode;
             }
 
             return (
