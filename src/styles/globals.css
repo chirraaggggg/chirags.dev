@@ -640,6 +640,11 @@ html.lenis body {
   padding-bottom: 0;
   display: flex;
   position: relative;
+  /* The hero zooms via scale(1.6) at 650-900px; clip the horizontal bleed
+     like the reference (itspgiri.com uses overflow-x: hidden) so the page
+     doesn't get a horizontal scrollbar. Scoped here so the fixed nav and
+     non-retro pages are unaffected. */
+  overflow-x: clip;
 }
 
 .retro-site .hero-center {
@@ -796,7 +801,10 @@ html.lenis body {
   font-size: 0.95rem;
   animation-delay: 0.2s;
   top: -50px;
-  left: -70px;
+  /* Pushed further left than the reference offset (-70px) because the name
+     here is narrower, so the tag would otherwise reach the centered
+     "Hi, I am" text. Now it clears both the name and the greeting. */
+  left: -200px;
 }
 
 .retro-site .tag-red {
@@ -806,7 +814,9 @@ html.lenis body {
   background: #dc2626;
   animation-delay: 0.5s;
   top: -20px;
-  right: -130px;
+  /* Pushed further right than the reference offset (-130px) so it sits
+     beside the name instead of covering its top-right corner. */
+  right: -200px;
 }
 
 .retro-site .tag-yellow {
@@ -815,8 +825,11 @@ html.lenis body {
   transform: rotate(var(--tag-rot));
   background: #eab308;
   animation-delay: 0.8s;
-  bottom: -45px;
-  left: -35px;
+  bottom: -35px;
+  /* Pushed further left than the reference offset (-35px) so it clears the
+     "LIVE ON" row (right-aligned under the name) instead of cutting off the
+     first letters. */
+  left: -195px;
 }
 
 .retro-site .custom-cursor-img {
@@ -1132,24 +1145,32 @@ html.lenis body {
   .retro-site .tag-blue {
     --tag-rot: -10deg;
     transform: rotate(var(--tag-rot));
-    top: -38px;
-    left: -30px;
+    /* Raised above "Hi, I am" on narrow screens: there is no room beside
+       the small centered name, so the tag sits above the greeting instead
+       of covering it or the name. */
+    top: -110px;
+    left: -70px;
     animation-delay: 0.1s !important;
   }
 
   .retro-site .tag-red {
     --tag-rot: 12deg;
     transform: rotate(var(--tag-rot));
-    top: -24px;
-    right: 8px;
+    /* Raised above the name's top-right corner so it clears both the name
+       and the greeting text on narrow screens. */
+    top: -45px;
+    right: -10px;
     animation-delay: 0.2s !important;
   }
 
   .retro-site .tag-yellow {
     --tag-rot: 10deg;
     transform: rotate(var(--tag-rot));
-    bottom: -32px;
-    left: 0%;
+    /* Raised above the "LIVE ON" row (which is right-aligned and wide on
+       narrow screens) and shifted left so it sits beside the name's
+       bottom-left corner instead of covering the name. */
+    bottom: 12px;
+    left: -75px;
     animation-delay: 0.3s !important;
     display: block !important;
   }
