@@ -6,6 +6,7 @@ import {
   Geist_Mono,
   Inter,
   JetBrains_Mono,
+  Montserrat,
   Press_Start_2P,
   Space_Grotesk,
 } from "next/font/google";
@@ -15,7 +16,6 @@ import type { WebSite, WithContext } from "schema-dts";
 
 import { ConsentManager } from "@/components/consent-manager";
 import { Providers } from "@/components/providers";
-import { SmoothScroll } from "@/components/smooth-scroll";
 import { META_THEME_COLORS, SITE_INFO } from "@/config/site";
 import { THEME_INIT_SCRIPT } from "@/config/theme-script";
 
@@ -66,6 +66,13 @@ const pixelFont = Press_Start_2P({
   weight: "400",
   display: "swap",
   variable: "--font-pixel-2p",
+});
+
+const montserratFont = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  variable: "--font-montserrat",
 });
 
 export const metadata: Metadata = {
@@ -143,7 +150,7 @@ export default function RootLayout({
       </head>
 
       <body
-        className={`${inter.variable} ${geistMono.variable} ${displayFont.variable} ${handFont.variable} ${terminalFont.variable} ${pixelFont.variable}`}
+        className={`${inter.variable} ${geistMono.variable} ${displayFont.variable} ${handFont.variable} ${terminalFont.variable} ${pixelFont.variable} ${montserratFont.variable}`}
       >
         <ThemeProvider
           attribute="class"
@@ -153,13 +160,11 @@ export default function RootLayout({
           enableColorScheme
           storageKey="theme"
         >
-          <SmoothScroll>
-            <Providers>
-              <NuqsAdapter>
-                <ConsentManager>{children}</ConsentManager>
-              </NuqsAdapter>
-            </Providers>
-          </SmoothScroll>
+          <Providers>
+            <NuqsAdapter>
+              <ConsentManager>{children}</ConsentManager>
+            </NuqsAdapter>
+          </Providers>
         </ThemeProvider>
       </body>
     </html>

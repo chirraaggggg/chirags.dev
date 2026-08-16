@@ -6,7 +6,8 @@ import { Experience } from "@/components/retro/experience";
 import { RetroFooter } from "@/components/retro/footer";
 import { Hero } from "@/components/retro/hero";
 import { RetroNav } from "@/components/retro/retro-nav";
-import { SideQuests } from "@/components/retro/side-quests";
+import { TerminalWindow } from "@/components/retro/window";
+import { RETRO } from "@/config/retro";
 import { HEADER_COPY, SITE_INFO } from "@/config/site";
 
 function getPageJsonLd(): WithContext<PageSchema> {
@@ -26,7 +27,7 @@ function getPageJsonLd(): WithContext<PageSchema> {
 
 export default function Page() {
   return (
-    <>
+    <div className="retro-site">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -37,25 +38,22 @@ export default function Page() {
       <BlueprintBackground />
       <RetroNav />
 
-      <main className="relative">
+      <main>
         <Hero />
 
-        <div className="mx-auto flex max-w-5xl flex-col gap-14 px-4 sm:px-6">
-          <section id="about" className="scroll-mt-28">
-            <AboutSkills />
-          </section>
-
-          <section id="experience" className="scroll-mt-28">
-            <Experience />
-          </section>
-
-          <section id="side-quests" className="scroll-mt-28">
-            <SideQuests />
-          </section>
-        </div>
-
-        <RetroFooter />
+        <section id="about" className="about-section">
+          <div>
+            <div id="about-terminal">
+              <TerminalWindow title={RETRO.windowTitle}>
+                <AboutSkills />
+                <Experience />
+              </TerminalWindow>
+            </div>
+          </div>
+        </section>
       </main>
-    </>
+
+      <RetroFooter />
+    </div>
   );
 }

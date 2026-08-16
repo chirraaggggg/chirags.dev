@@ -1,146 +1,50 @@
 "use client";
 
-import { useLenis } from "lenis/react";
-import { useTheme } from "next-themes";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { META_THEME_COLORS } from "@/config/site";
+import { RETRO } from "@/config/retro";
 import { USER } from "@/features/portfolio/data/user";
-import { useIsClient } from "@/hooks/use-is-client";
 import { cn } from "@/lib/utils";
 import { decodeEmail } from "@/utils/string";
 
-type NavVariant = "red" | "yellow" | "blue" | "white";
+const SCROLL_IDS = ["home", "about"];
 
-type NavItem = {
-  id: string;
-  label: string;
-  href?: string;
-  variant: NavVariant;
-  scrollTo?: "top";
-  enterIcon?: boolean;
-};
-
-const NAV_ITEMS: NavItem[] = [
-  { id: "esc", label: "ESC", variant: "red", scrollTo: "top" },
-  { id: "home", label: "HOME", href: "#home", variant: "white" },
-  { id: "about", label: "ABOUT", href: "#about", variant: "white" },
-  {
-    id: "side-quests",
-    label: "SIDE QUESTS",
-    href: "#side-quests",
-    variant: "white",
-  },
-  { id: "links", label: "LINKS", href: "#links", variant: "yellow" },
-  {
-    id: "contact",
-    label: "CONTACT",
-    href: `mailto:${decodeEmail(USER.email)}`,
-    variant: "blue",
-    enterIcon: true,
-  },
+/** Desktop SIDE QUESTS dropdown — mirrors the reference nav exactly. */
+const SIDE_QUESTS_DROPDOWN = [
+  { label: "GitHub", tab: "github" },
+  { label: "Brands", tab: "brandCollabs" },
+  { label: "Bucket List", tab: "bucketList" },
+  { label: "Art", tab: "art" },
 ];
 
-const VARIANT_CLASSES: Record<NavVariant, string> = {
-  red: "bg-[#ff5f57] text-white",
-  yellow: "bg-[#febc2e] text-black",
-  blue: "bg-[#4b7bec] text-white",
-  white:
-    "bg-white text-black dark:bg-[#2b2b2b] dark:text-[#e8e8e8] dark:border-[#4a4a4a]",
-};
-
-const NAV_BUTTON_CLASSES =
-  "relative flex items-center gap-1.5 rounded-full border-2 border-black px-2.5 py-1.5 font-sans text-[11px] font-extrabold tracking-wide whitespace-nowrap shadow-[0_3px_0_0_rgba(0,0,0,0.9)] transition-[transform,box-shadow] duration-150 hover:-translate-y-0.5 hover:shadow-[0_4px_0_0_rgba(0,0,0,0.9)] active:translate-y-0.5 active:shadow-none dark:shadow-[0_3px_0_0_rgba(255,255,255,0.15)] dark:hover:shadow-[0_4px_0_0_rgba(255,255,255,0.15)] sm:px-3 sm:text-xs";
-
-const SCROLL_IDS = ["home", "about", "side-quests", "links"];
-
-/** Sun/moon light–dark toggle styled to match the retro nav buttons. */
-function ThemeToggle() {
-  const { resolvedTheme, setTheme } = useTheme();
-  const isClient = useIsClient();
-
-  const isDark = isClient && resolvedTheme === "dark";
-
-  // Keep the browser chrome (mobile address bar) in sync with the theme.
-  useEffect(() => {
-    const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) {
-      meta.setAttribute(
-        "content",
-        isDark ? META_THEME_COLORS.dark : META_THEME_COLORS.light,
-      );
-    }
-  }, [isDark]);
-
-  return (
-    <button
-      type="button"
-      role="switch"
-      aria-checked={isDark}
-      onClick={() => setTheme(isDark ? "light" : "dark")}
-      aria-label={
-        isDark ? "Switch to light theme" : "Switch to dark theme"
-      }
-      className="relative flex h-7 w-[54px] shrink-0 items-center rounded-full border-2 border-black bg-white p-[3px] shadow-[0_3px_0_0_rgba(0,0,0,0.9)] transition-[transform,box-shadow] duration-150 hover:-translate-y-0.5 hover:shadow-[0_4px_0_0_rgba(0,0,0,0.9)] active:translate-y-0.5 active:shadow-none dark:border-[#3a3a3a] dark:bg-[#1c1c1c] dark:shadow-[0_3px_0_0_rgba(255,255,255,0.15)] dark:hover:shadow-[0_4px_0_0_rgba(255,255,255,0.15)]"
-    >
-      <span
-        aria-hidden
-        className={cn(
-          "flex size-[18px] items-center justify-center rounded-full transition-transform duration-200 ease-out",
-          isDark ? "translate-x-[26px] bg-[#e8e8e8]" : "translate-x-0 bg-black",
-        )}
-      >
-        {isDark ? <SunIcon /> : <MoonIcon />}
-      </span>
-    </button>
-  );
-}
-
-function MoonIcon() {
+/** Enter icon shown inside the CONTACT key, from the reference site. */
+function EnterIcon() {
   return (
     <svg
-      viewBox="0 0 12 12"
-      width="11"
-      height="11"
-      fill="currentColor"
-      className="text-[#e8e8e8]"
-      aria-hidden
-    >
-      <path d="M8.7 2.1A4.5 4.5 0 1 0 9.9 9.8 4.9 4.9 0 0 1 8.7 2.1Z" />
-    </svg>
-  );
-}
-
-function SunIcon() {
-  return (
-    <svg
-      viewBox="0 0 12 12"
-      width="11"
-      height="11"
+      width="14"
+      height="14"
+      viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.5"
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="text-[#1a1a1a]"
       aria-hidden
     >
-      <circle cx="6" cy="6" r="2.2" />
-      <line x1="6" y1="0.8" x2="6" y2="2" />
-      <line x1="6" y1="10" x2="6" y2="11.2" />
-      <line x1="0.8" y1="6" x2="2" y2="6" />
-      <line x1="10" y1="6" x2="11.2" y2="6" />
-      <line x1="2.1" y1="2.1" x2="3" y2="3" />
-      <line x1="9" y1="9" x2="9.9" y2="9.9" />
-      <line x1="2.1" y1="9.9" x2="3" y2="9" />
-      <line x1="9" y1="3" x2="9.9" y2="2.1" />
+      <polyline points="9 10 4 15 9 20" />
+      <path d="M20 4v7a4 4 0 0 1-4 4H4" />
     </svg>
   );
 }
 
 export function RetroNav() {
+  const pathname = usePathname();
   const [activeId, setActiveId] = useState<string>("home");
-  const lenis = useLenis();
+  const [mobileMoreOpen, setMobileMoreOpen] = useState(false);
+
+  const isProjectsPage = pathname === "/projects";
 
   useEffect(() => {
     const sections = SCROLL_IDS.map((id) => document.getElementById(id)).filter(
@@ -162,71 +66,143 @@ export function RetroNav() {
     return () => observer.disconnect();
   }, []);
 
-  const handleClick = (item: NavItem) => {
-    if (item.scrollTo === "top") {
-      lenis?.scrollTo(0, { immediate: false });
-      setActiveId("home");
-    }
-  };
+  // Close the mobile dropdown after navigation.
+  useEffect(() => {
+    setMobileMoreOpen(false);
+  }, [pathname]);
+
+  const keyBase =
+    "kbd-key" +
+    (isProjectsPage ? "" : activeId === "home" ? " active" : "");
 
   return (
-    <nav
-      className="fixed top-3 left-1/2 z-50 max-w-[calc(100vw-1rem)] -translate-x-1/2"
-      aria-label="Primary"
-    >
-      <div className="no-scrollbar flex w-fit max-w-full items-center gap-1 overflow-x-auto rounded-full border-2 border-black bg-white p-1.5 shadow-[0_4px_0_0_rgba(0,0,0,0.9)] dark:border-[#3a3a3a] dark:bg-[#161616] dark:shadow-[0_4px_0_0_rgba(255,255,255,0.15)]">
-        {NAV_ITEMS.map((item) => {
-          const isActive =
-            item.id !== "esc" && item.id !== "contact" && activeId === item.id;
+    <nav className="glass-nav-container" aria-label="Primary">
+      <div className="keyboard-base">
+        {/* ESC — scroll to top */}
+        <div
+          className="kbd-key esc-key hide-on-mobile"
+          style={{ cursor: "pointer", zIndex: 100 }}
+          onClick={() => window.scrollTo({ top: 0 })}
+        >
+          ESC
+        </div>
 
-          const activeDot = isActive ? (
-            <span
-              className="absolute -bottom-1 left-1/2 size-1.5 -translate-x-1/2 rounded-full bg-green-500 ring-2 ring-white dark:ring-[#161616]"
-              aria-hidden
-            />
-          ) : null;
+        {/* HOME */}
+        <Link
+          href="#home"
+          className={cn(
+            keyBase,
+            "mobile-home-red",
+            !isProjectsPage && activeId === "home" && "active",
+          )}
+          onClick={(e) => {
+            e.preventDefault();
+            setActiveId("home");
+            window.scrollTo({ top: 0 });
+          }}
+        >
+          Home
+        </Link>
 
-          if (item.scrollTo === "top") {
-            return (
-              <button
-                key={item.id}
-                type="button"
-                onClick={() => handleClick(item)}
-                className={cn(
-                  NAV_BUTTON_CLASSES,
-                  VARIANT_CLASSES[item.variant],
-                )}
+        {/* ABOUT */}
+        <Link
+          href="#about"
+          className={cn(
+            "kbd-key hide-on-mobile",
+            !isProjectsPage && activeId === "about" && "active",
+          )}
+          onClick={(e) => {
+            e.preventDefault();
+            setActiveId("about");
+            document
+              .getElementById("about")
+              ?.scrollIntoView({ behavior: "smooth" });
+          }}
+        >
+          About
+        </Link>
+
+        {/* SIDE QUESTS — dropdown */}
+        <div className="dropdown-container">
+          <Link
+            href="/projects"
+            className={cn("kbd-key side-quests-btn", isProjectsPage && "active")}
+          >
+            Side Quests
+          </Link>
+          <div className="subnav-dropdown-menu">
+            {SIDE_QUESTS_DROPDOWN.map((item) => (
+              <Link
+                key={item.tab}
+                href={`/projects?tab=${item.tab}`}
+                className="subnav-dropdown-item"
               >
                 {item.label}
-                {activeDot}
-              </button>
-            );
-          }
+              </Link>
+            ))}
+          </div>
+        </div>
 
-          return (
+        {/* LINKS */}
+        <a
+          href="#links"
+          onClick={(e) => {
+            e.preventDefault();
+            document
+              .getElementById("links")
+              ?.scrollIntoView({ behavior: "smooth" });
+          }}
+          className="kbd-key arcade-yellow-key hide-on-mobile"
+        >
+          Links
+        </a>
+
+        {/* CONTACT */}
+        <a
+          href={`mailto:${decodeEmail(USER.email)}`}
+          className="kbd-key fn-key hide-on-mobile"
+          style={{ gap: 6 }}
+        >
+          Contact
+          <EnterIcon />
+        </a>
+
+        {/* Mobile MORE dropdown */}
+        <div className="dropdown-container show-on-mobile">
+          <button
+            type="button"
+            className="kbd-key fn-key more-btn"
+            style={{ gap: 6 }}
+            onClick={() => setMobileMoreOpen((v) => !v)}
+            aria-expanded={mobileMoreOpen}
+          >
+            More
+            <EnterIcon />
+          </button>
+          <div
+            className={cn("subnav-dropdown-menu", mobileMoreOpen && "show")}
+          >
             <a
-              key={item.id}
-              href={item.href}
+              href="#links"
+              className="subnav-dropdown-item"
               onClick={(e) => {
-                const target = item.href?.startsWith("#")
-                  ? document.getElementById(item.href.slice(1))
-                  : null;
-                if (target) {
-                  e.preventDefault();
-                  lenis?.scrollTo(target, { offset: -80 });
-                  setActiveId(item.id);
-                }
+                e.preventDefault();
+                setMobileMoreOpen(false);
+                document
+                  .getElementById("links")
+                  ?.scrollIntoView({ behavior: "smooth" });
               }}
-              className={cn(NAV_BUTTON_CLASSES, VARIANT_CLASSES[item.variant])}
             >
-              {item.label}
-              {item.enterIcon && <span aria-hidden>&#8617;</span>}
-              {activeDot}
+              Links
             </a>
-          );
-        })}
-
-        <ThemeToggle />
+            <a
+              href={`mailto:${decodeEmail(USER.email)}`}
+              className="subnav-dropdown-item"
+            >
+              Contact
+            </a>
+          </div>
+        </div>
       </div>
     </nav>
   );

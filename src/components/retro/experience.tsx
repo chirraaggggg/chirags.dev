@@ -1,106 +1,168 @@
-import { ChevronDownIcon } from "lucide-react";
-
 import { RETRO } from "@/config/retro";
 
-import { RetroWindow, TerminalHeading } from "./window";
+import { TerminalSectionTitle } from "./window";
 
-interface TimelineEntryProps {
+interface SubRole {
   role: string;
-  org: string;
-  focus: string;
   dates: string;
-  isLast?: boolean;
-  education?: boolean;
+  bullets: readonly string[];
 }
 
-function TimelineEntry({
-  role,
-  org,
-  focus,
-  dates,
-  isLast,
-  education,
-}: TimelineEntryProps) {
-  return (
-    <li className="relative flex gap-5 pb-10 pl-0 last:pb-0">
-      {/* Dot + connecting line */}
-      <div className="relative flex flex-col items-center">
-        <span
-          className={
-            education
-              ? "mt-1 size-3.5 rounded-full border-2 border-black bg-[#febc2e] shadow-[0_0_0_3px_rgba(254,188,46,0.3)]"
-              : "mt-1 size-3.5 rounded-full border-2 border-black bg-white dark:border-white/30 dark:bg-[#2a2a2a]"
-          }
-          aria-hidden
-        />
-        {!isLast && <span className="w-px flex-1 bg-black/15 dark:bg-white/15" aria-hidden />}
-      </div>
+interface TimelineItem {
+  role: string;
+  company: string;
+  focus?: string;
+  dates: string;
+  bullets?: readonly string[];
+  subRoles?: SubRole[];
+  isEducation?: boolean;
+}
 
-      {/* Entry body */}
-      <div className="flex flex-1 flex-col gap-1 pb-1">
-        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-          <h3 className="font-sans text-lg font-bold text-black dark:text-[#e8e8e8]">{role}</h3>
-          <span className="flex items-center gap-1.5 font-terminal text-xs font-medium tracking-[0.08em] text-black/50 whitespace-nowrap dark:text-white/50">
-            {dates}
-            <ChevronDownIcon className="size-3.5" aria-hidden />
-          </span>
+function ArcadeBullets({
+  bullets,
+  single,
+  subRole,
+}: {
+  bullets: readonly string[];
+  single?: boolean;
+  subRole?: boolean;
+}) {
+  return (
+    <ul
+      className={`arcade-bullets ${single ? "single-bullet" : ""}`}
+      style={subRole ? { marginTop: 8 } : undefined}
+    >
+      {bullets.map((bullet, i) => (
+        <li key={i}>{bullet}</li>
+      ))}
+    </ul>
+  );
+}
+function TimelineCard({ item }: { item: TimelineItem }) {
+  const isSingle = (item.bullets?.length ?? 0) === 1 && !item.subRoles;
+
+  return (
+    <details className="exp-card-arcade group">
+      <summary className="arcade-summary">
+        <div className="arcade-header-left">
+          <div>
+            <h3 className="arcade-role">{item.role}</h3>
+            <h4 className="arcade-company">
+              {item.company}
+              {item.focus ? (
+                <>
+                  {" "}
+                  <span aria-hidden>•</span> {item.focus}
+                </>
+              ) : null}
+            </h4>
+          </div>
         </div>
-        <p className="font-sans text-sm font-medium text-black/60 dark:text-white/60">
-          {org}
-          {focus && (
-            <>
-              {" "}
-              <span aria-hidden>•</span>{" "}
-              <span className="text-black/45 dark:text-white/45">{focus}</span>
-            </>
-          )}
-        </p>
+        <div className="arcade-header-right">
+          <div className="arcade-badge">{item.dates}</div>
+          <div className="arcade-chevron">▼</div>
+        </div>
+      </summary>
+      <div className="arcade-body" style={{ paddingTop: 8 }}>
+        {item.subRoles ? (
+          item.subRoles.map((sub, i) => (
+            <div
+              key={sub.role}
+              className="arcade-subrole-group"
+              style={{
+                marginBottom: i === item.subRoles!.length - 1 ? 0 : 20,
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  marginBottom: 6,
+                }}
+              >
+                <h3
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontWeight: 700,
+                    fontSize: 11,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.08em",
+                    color: "#666",
+                    margin: 0,
+                  }}
+                >
+                  {sub.role}
+                </h3>
+                <span
+                  className="arcade-badge"
+                  style={{ color: "#aaa", fontSize: 9 }}
+                >
+                  {sub.dates}
+                </span>
+              </div>
+              <ArcadeBullets bullets={sub.bullets} subRole />
+            </div>
+          ))
+        ) : (
+          <ArcadeBullets bullets={item.bullets ?? []} single={isSingle} />
+        )}
       </div>
-    </li>
+    </details>
   );
 }
 
 export function Experience() {
+  const items: TimelineItem[] = [
+    ...RETRO.experience.items.map((item) => ({ ...item })),
+    { ...RETRO.experience.education, isEducation: true },
+  ];
+
   return (
-    <RetroWindow
-      title={RETRO.experience.heading}
-      titleClassName="font-pixel text-xs uppercase tracking-normal"
-      bodyClassName="p-7 sm:p-12"
-    >
-      <ul>
-        {RETRO.experience.items.map((item, i) => (
-          <TimelineEntry
-            key={`${item.role}-${item.org}`}
-            {...item}
-            isLast={i === RETRO.experience.items.length - 1}
-          />
-        ))}
-      </ul>
-
-      {/* Education */}
-      <div className="mt-12 border-t border-dashed border-black/15 pt-12 dark:border-white/15">
-        <TerminalHeading accent="text-[#febc2e]">
-          {RETRO.experience.education.heading}
-        </TerminalHeading>
-        <ul className="mt-9">
-          {RETRO.experience.education.items.map((item, i) => (
-            <TimelineEntry
-              key={`${item.role}-${item.org}`}
-              {...item}
-              isLast={i === RETRO.experience.education.items.length - 1}
-              education
-            />
-          ))}
-        </ul>
+    <>
+      <div className="terminal-divider" />
+      <div className="terminal-body">
+        <TerminalSectionTitle
+          chevronColor={RETRO.experience.chevronColor}
+        >
+          {RETRO.experience.heading}
+        </TerminalSectionTitle>
+        <div className="journey-container">
+          <div className="arcade-timeline-container">
+            {items.map((item, i) => (
+              <div
+                key={`${item.role}-${item.company}`}
+                className="arcade-timeline-item"
+              >
+                <div className="arcade-timeline-node badge-mono-solid" />
+                <TimelineCard item={item} />
+              </div>
+            ))}
+          </div>
+        </div>
+        <div
+          className="timeline-btn-wrapper"
+          style={{ marginTop: 16, paddingBottom: 0, textAlign: "center" }}
+        >
+          <a href={RETRO.experience.cta.href} className="btn btn-black">
+            {RETRO.experience.cta.label}
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              style={{ marginLeft: 10 }}
+              aria-hidden
+            >
+              <path d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
       </div>
-
-      {/* Full-width CTA */}
-      <a
-        href={RETRO.experience.cta.href}
-        className="mt-10 block w-full rounded-lg border-2 border-black bg-black px-6 py-4 text-center font-sans text-sm font-extrabold tracking-wide text-white shadow-[0_4px_0_0_rgba(0,0,0,0.9)] transition-[transform,box-shadow] duration-150 hover:-translate-y-0.5 hover:shadow-[0_6px_0_0_rgba(0,0,0,0.9)] active:translate-y-1 active:shadow-none dark:border-white/40 dark:shadow-[0_4px_0_0_rgba(255,255,255,0.15)] dark:hover:shadow-[0_6px_0_0_rgba(255,255,255,0.15)]"
-      >
-        {RETRO.experience.cta.label}
-      </a>
-    </RetroWindow>
+    </>
   );
 }
