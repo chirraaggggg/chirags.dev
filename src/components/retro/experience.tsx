@@ -29,29 +29,29 @@ function TimelineEntry({
           className={
             education
               ? "mt-1 size-3.5 rounded-full border-2 border-black bg-[#febc2e] shadow-[0_0_0_3px_rgba(254,188,46,0.3)]"
-              : "mt-1 size-3.5 rounded-full border-2 border-black bg-white"
+              : "mt-1 size-3.5 rounded-full border-2 border-black bg-white dark:border-white/30 dark:bg-[#2a2a2a]"
           }
           aria-hidden
         />
-        {!isLast && <span className="w-px flex-1 bg-black/15" aria-hidden />}
+        {!isLast && <span className="w-px flex-1 bg-black/15 dark:bg-white/15" aria-hidden />}
       </div>
 
       {/* Entry body */}
       <div className="flex flex-1 flex-col gap-1 pb-1">
         <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-          <h3 className="font-sans text-lg font-bold text-black">{role}</h3>
-          <span className="flex items-center gap-1.5 font-terminal text-xs font-medium tracking-[0.08em] text-black/50 whitespace-nowrap">
+          <h3 className="font-sans text-lg font-bold text-black dark:text-[#e8e8e8]">{role}</h3>
+          <span className="flex items-center gap-1.5 font-terminal text-xs font-medium tracking-[0.08em] text-black/50 whitespace-nowrap dark:text-white/50">
             {dates}
             <ChevronDownIcon className="size-3.5" aria-hidden />
           </span>
         </div>
-        <p className="font-sans text-sm font-medium text-black/60">
+        <p className="font-sans text-sm font-medium text-black/60 dark:text-white/60">
           {org}
           {focus && (
             <>
               {" "}
               <span aria-hidden>•</span>{" "}
-              <span className="text-black/45">{focus}</span>
+              <span className="text-black/45 dark:text-white/45">{focus}</span>
             </>
           )}
         </p>
@@ -78,7 +78,7 @@ export function Experience() {
       </ul>
 
       {/* Education */}
-      <div className="mt-12 border-t border-dashed border-black/15 pt-12">
+      <div className="mt-12 border-t border-dashed border-black/15 pt-12 dark:border-white/15">
         <TerminalHeading accent="text-[#febc2e]">
           {RETRO.experience.education.heading}
         </TerminalHeading>
@@ -97,7 +97,7 @@ export function Experience() {
       {/* Full-width CTA */}
       <a
         href={RETRO.experience.cta.href}
-        className="mt-10 block w-full rounded-lg border-2 border-black bg-black px-6 py-4 text-center font-sans text-sm font-extrabold tracking-wide text-white shadow-[0_4px_0_0_rgba(0,0,0,0.9)] transition-[transform,box-shadow] duration-150 hover:-translate-y-0.5 hover:shadow-[0_6px_0_0_rgba(0,0,0,0.9)] active:translate-y-1 active:shadow-none"
+        className="mt-10 block w-full rounded-lg border-2 border-black bg-black px-6 py-4 text-center font-sans text-sm font-extrabold tracking-wide text-white shadow-[0_4px_0_0_rgba(0,0,0,0.9)] transition-[transform,box-shadow] duration-150 hover:-translate-y-0.5 hover:shadow-[0_6px_0_0_rgba(0,0,0,0.9)] active:translate-y-1 active:shadow-none dark:border-white/40 dark:shadow-[0_4px_0_0_rgba(255,255,255,0.15)] dark:hover:shadow-[0_6px_0_0_rgba(255,255,255,0.15)]"
       >
         {RETRO.experience.cta.label}
       </a>

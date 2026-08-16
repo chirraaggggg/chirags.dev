@@ -58,7 +58,7 @@ export function Hero() {
     >
       <div className="relative mx-auto flex max-w-4xl flex-col items-center text-center">
         {/* Handwritten intro */}
-        <p className="font-hand text-3xl font-semibold text-black/80 sm:text-4xl">
+        <p className="font-hand text-3xl font-semibold text-black/80 sm:text-4xl dark:text-white/80">
           {RETRO.hero.script}
         </p>
 
@@ -84,13 +84,13 @@ export function Hero() {
             className="absolute -bottom-9 -left-2 rotate-5 sm:-bottom-12 sm:-left-9"
           />
 
-          <h1 className="font-pixel text-[clamp(2.5rem,10vw,4.5rem)] leading-[1.1] font-bold tracking-[-3px] text-[#111] [text-shadow:6px_6px_#e0e0e0]">
+          <h1 className="font-pixel text-[clamp(2.5rem,10vw,4.5rem)] leading-[1.1] font-bold tracking-[-3px] text-[#111] [text-shadow:6px_6px_#e0e0e0] dark:text-[#e8e8e8] dark:[text-shadow:6px_6px_#262626]">
             {RETRO.hero.firstName}
           </h1>
         </div>
 
         {/* Tagline */}
-        <p className="mt-8 max-w-2xl font-sans text-[17px] leading-[1.7] font-medium text-black/70">
+        <p className="mt-8 max-w-2xl font-sans text-[17px] leading-[1.7] font-medium text-black/70 dark:text-white/70">
           {RETRO.hero.tagline}
         </p>
 
@@ -100,10 +100,10 @@ export function Hero() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-60" />
             <span className="relative inline-flex size-2.5 rounded-full bg-green-600" />
           </span>
-          <span className="font-terminal text-xs font-bold tracking-[0.2em] text-black/70">
+          <span className="font-terminal text-xs font-bold tracking-[0.2em] text-black/70 dark:text-white/70">
             {RETRO.hero.liveOn}
           </span>
-          <span aria-hidden className="h-px w-6 bg-black/30" />
+          <span aria-hidden className="h-px w-6 bg-black/30 dark:bg-white/30" />
           <div className="flex items-center gap-2">
             {LIVE_ON_LINKS.map(({ label, href, Icon }) => (
               <a
@@ -114,7 +114,7 @@ export function Hero() {
                   href.startsWith("http") ? "noreferrer noopener" : undefined
                 }
                 aria-label={label}
-                className="flex size-9 items-center justify-center rounded-full border-2 border-black bg-white text-black shadow-[0_3px_0_0_rgba(0,0,0,0.9)] transition-[transform,box-shadow] duration-150 hover:-translate-y-0.5 hover:shadow-[0_4px_0_0_rgba(0,0,0,0.9)] active:translate-y-0.5 active:shadow-none"
+                className="flex size-9 items-center justify-center rounded-full border-2 border-black bg-white text-black shadow-[0_3px_0_0_rgba(0,0,0,0.9)] transition-[transform,box-shadow] duration-150 hover:-translate-y-0.5 hover:shadow-[0_4px_0_0_rgba(0,0,0,0.9)] active:translate-y-0.5 active:shadow-none dark:border-[#3a3a3a] dark:bg-[#161616] dark:text-[#e8e8e8] dark:shadow-[0_3px_0_0_rgba(255,255,255,0.15)] dark:hover:shadow-[0_4px_0_0_rgba(255,255,255,0.15)]"
               >
                 <Icon className="size-4" />
               </a>
@@ -126,13 +126,13 @@ export function Hero() {
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <a
             href={RETRO.hero.talkTo.href}
-            className="rounded-lg border-2 border-black bg-black px-6 py-3 font-sans text-sm font-extrabold tracking-wide text-white shadow-[4px_4px_0_0_rgba(0,0,0,0.9)] transition-[transform,box-shadow,background-color] duration-150 hover:-translate-y-0.5 hover:bg-black/85 hover:shadow-[5px_5px_0_0_rgba(0,0,0,0.9)] active:translate-y-1 active:shadow-none"
+            className="rounded-lg border-2 border-black bg-black px-6 py-3 font-sans text-sm font-extrabold tracking-wide text-white shadow-[4px_4px_0_0_rgba(0,0,0,0.9)] transition-[transform,box-shadow,background-color] duration-150 hover:-translate-y-0.5 hover:bg-black/85 hover:shadow-[5px_5px_0_0_rgba(0,0,0,0.9)] active:translate-y-1 active:shadow-none dark:border-white/40 dark:shadow-[4px_4px_0_0_rgba(255,255,255,0.15)] dark:hover:shadow-[5px_5px_0_0_rgba(255,255,255,0.15)]"
           >
             {RETRO.hero.talkTo.label}
           </a>
           <a
             href={RETRO.hero.resources.href}
-            className="rounded-lg border-2 border-black bg-[#28c840] px-6 py-3 font-sans text-sm font-extrabold tracking-wide text-black shadow-[4px_4px_0_0_rgba(0,0,0,0.9)] transition-[transform,box-shadow,background-color] duration-150 hover:-translate-y-0.5 hover:bg-[#2fdc49] hover:shadow-[5px_5px_0_0_rgba(0,0,0,0.9)] active:translate-y-1 active:shadow-none"
+            className="rounded-lg border-2 border-black bg-[#28c840] px-6 py-3 font-sans text-sm font-extrabold tracking-wide text-black shadow-[4px_4px_0_0_rgba(0,0,0,0.9)] transition-[transform,box-shadow,background-color] duration-150 hover:-translate-y-0.5 hover:bg-[#2fdc49] hover:shadow-[5px_5px_0_0_rgba(0,0,0,0.9)] active:translate-y-1 active:shadow-none dark:shadow-[4px_4px_0_0_rgba(255,255,255,0.15)] dark:hover:shadow-[5px_5px_0_0_rgba(255,255,255,0.15)]"
           >
             {RETRO.hero.resources.label}
           </a>

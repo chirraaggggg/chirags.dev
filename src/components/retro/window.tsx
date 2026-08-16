@@ -26,11 +26,11 @@ export function RetroWindow({
   return (
     <div
       className={cn(
-        "relative rounded-xl border border-black/15 bg-white shadow-[0_10px_30px_-12px_rgba(0,0,0,0.25)] transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-black/30 hover:shadow-[0_16px_40px_-14px_rgba(0,0,0,0.3)]",
+        "relative rounded-xl border border-black/15 bg-white shadow-[0_10px_30px_-12px_rgba(0,0,0,0.25)] transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-black/30 hover:shadow-[0_16px_40px_-14px_rgba(0,0,0,0.3)] dark:border-white/15 dark:bg-[#141414] dark:shadow-[0_10px_30px_-12px_rgba(255,255,255,0.06)] dark:hover:border-white/30 dark:hover:shadow-[0_16px_40px_-14px_rgba(255,255,255,0.1)]",
         className,
       )}
     >
-      <div className="relative flex items-center justify-between border-b border-black/10 px-4 py-3">
+      <div className="relative flex items-center justify-between border-b border-black/10 px-4 py-3 dark:border-white/10">
         {/* Traffic lights + matching spacer so the title stays centered */}
         <div className="flex w-14 items-center gap-2">
           <span className="size-3 rounded-full border border-black/10 bg-[#ff5f57]" />
@@ -39,7 +39,7 @@ export function RetroWindow({
         </div>
         <span
           className={cn(
-            "absolute left-1/2 -translate-x-1/2 truncate font-terminal text-xs font-medium tracking-[0.08em] text-black/60",
+            "absolute left-1/2 -translate-x-1/2 truncate font-terminal text-xs font-medium tracking-[0.08em] text-black/60 dark:text-white/60",
             titleClassName,
           )}
         >
@@ -66,7 +66,7 @@ export function TerminalHeading({
   return (
     <h2
       className={cn(
-        "flex items-center gap-2.5 font-pixel text-sm uppercase tracking-normal text-[#111]",
+        "flex items-center gap-2.5 font-pixel text-sm uppercase tracking-normal text-[#111] dark:text-[#e8e8e8]",
         className,
       )}
     >

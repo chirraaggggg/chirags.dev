@@ -17,6 +17,7 @@ import { ConsentManager } from "@/components/consent-manager";
 import { Providers } from "@/components/providers";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { META_THEME_COLORS, SITE_INFO } from "@/config/site";
+import { THEME_INIT_SCRIPT } from "@/config/theme-script";
 
 function getWebSiteJsonLd(): WithContext<WebSite> {
   return {
@@ -132,6 +133,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

@@ -325,6 +325,13 @@ html.lenis body {
   }
 }
 
+/* Invert the blueprint line work (SVG tiles + graph-paper overlay) so it
+ * renders as faint white lines on the dark theme. Alpha values are preserved,
+ * so the visual density stays identical to the light theme. */
+.dark .retro-grid-bg {
+  filter: invert(1);
+}
+
 /* Sticky-note badges pop in with a springy bounce, like the reference site. */
 @keyframes pop-in-tag {
   0% {

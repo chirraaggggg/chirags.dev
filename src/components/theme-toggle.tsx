@@ -6,7 +6,7 @@ import { PORTFOLIO_COPY } from "@/config/site";
 
 export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
-  const currentTheme = resolvedTheme ?? PORTFOLIO_COPY.theme.dark;
+  const currentTheme = resolvedTheme ?? PORTFOLIO_COPY.theme.light;
   const isLight = currentTheme === PORTFOLIO_COPY.theme.light;
 
   return (
