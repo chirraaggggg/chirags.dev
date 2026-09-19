@@ -44,7 +44,7 @@ export function SiteFooter() {
               aria-label="Featured on freshlybuilt"
             >
               <img
-                src="https://freshlybuilt.me/badge/chirags.svg?theme=color"
+                src="/icons/freshlybuilt-badge.svg"
                 alt="Featured on freshlybuilt"
                 width={280}
                 height={56}

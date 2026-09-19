@@ -48,7 +48,7 @@ export function RetroFooter() {
         style={{ marginTop: 12, maxWidth: "100%" }}
       >
         <img
-          src="https://freshlybuilt.me/badge/chirags.svg?theme=color"
+          src="/icons/freshlybuilt-badge.svg"
           alt="Featured on freshlybuilt"
           width={280}
           height={56}
