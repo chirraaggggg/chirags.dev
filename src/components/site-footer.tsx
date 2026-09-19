@@ -41,15 +41,13 @@ export function SiteFooter() {
               href="https://freshlybuilt.me/product/chirags"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Featured on freshlybuilt"
             >
               <img
-                src="/icons/freshlybuilt-badge.svg"
+                src="https://freshlybuilt.me/badge/chirags.svg?theme=color"
                 alt="Featured on freshlybuilt"
                 width={280}
                 height={56}
                 loading="lazy"
-                className="h-auto max-w-full"
               />
             </a>
 
