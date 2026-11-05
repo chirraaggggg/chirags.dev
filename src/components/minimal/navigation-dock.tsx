@@ -6,7 +6,8 @@ import { usePathname } from "next/navigation";
 import { FOLIO } from "@/config/folio";
 
 const LINKS = [
-  { label: "Works", href: "/" },
+  { label: "Home", href: "/" },
+  { label: "Work", href: "/work" },
   { label: "About", href: "/about" },
 ] as const;
 

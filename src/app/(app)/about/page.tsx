@@ -1,14 +1,10 @@
 import type { Metadata } from "next";
 
-import { ExperienceList } from "@/components/minimal/experience-list";
-import { PageShell } from "@/components/minimal/page-shell";
-import { SiteHeader } from "@/components/minimal/site-header";
-import { Socials } from "@/components/minimal/socials";
-import { FOLIO_INTRO } from "@/config/folio";
+import { AboutPageContent } from "@/components/minimal/about-page";
 import { SITE_INFO } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About · Chirag Sharma",
   description:
     "About Chirag Sharma — a solo founder and full-stack engineer building AI products end to end.",
   alternates: { canonical: `${SITE_INFO.url}/about` },
@@ -22,26 +18,5 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
-  return (
-    <PageShell>
-      <SiteHeader title="About" />
-
-      <div className="mp-about-intro">
-        <div className="mp-copy">
-          {FOLIO_INTRO.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
-        </div>
-      </div>
-
-      <section className="mp-section" aria-labelledby="experience-heading">
-        <div className="mp-section-heading">
-          <h2 id="experience-heading">Experience</h2>
-        </div>
-        <ExperienceList />
-      </section>
-
-      <Socials />
-    </PageShell>
-  );
+  return <AboutPageContent />;
 }
