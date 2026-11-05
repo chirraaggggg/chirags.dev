@@ -121,14 +121,12 @@ export const FOLIO_APPROACH: Array<{ title: string; body: string }> = [
 
 export const FOLIO_NAV: FolioNavItem[] = [
   { label: "Work", href: "/#work", section: "work" },
-  { label: "About", href: "/#about", section: "about" },
   { label: "CV", href: "https://www.linkedin.com/in/sharmachirag17/" },
 ];
 
 export const FOLIO_SECTIONS = [
   { id: "work", label: "Work" },
   { id: "activities", label: "Recent activities" },
-  { id: "about", label: "About" },
   { id: "company", label: "In good company" },
   { id: "contact", label: "Contact" },
 ] as const;

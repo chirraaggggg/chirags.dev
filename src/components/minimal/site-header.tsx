@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import { Avatar } from "@/components/minimal/avatar";
@@ -26,18 +25,8 @@ export function SiteHeader({ title }: { title: string }) {
       <header className={compact ? "mp-sticky is-compact" : "mp-sticky"}>
         <Avatar />
         <div className="mp-sticky-title">
-          <nav className="mp-breadcrumb" aria-label="Breadcrumb">
-            <ol>
-              <li>
-                <Link href="/">Back to Home</Link>
-              </li>
-              <li className="mp-breadcrumb-separator" aria-hidden="true">
-                /
-              </li>
-              <li aria-current="page">
-                <h1>{title}</h1>
-              </li>
-            </ol>
+          <nav className="mp-breadcrumb" aria-label="Current page">
+            <h1>{title}</h1>
           </nav>
         </div>
       </header>

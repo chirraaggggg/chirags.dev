@@ -8,7 +8,6 @@ import { FOLIO } from "@/config/folio";
 const LINKS = [
   { label: "Home", href: "/" },
   { label: "Work", href: "/work" },
-  { label: "About", href: "/about" },
 ] as const;
 
 export function NavigationDock() {
