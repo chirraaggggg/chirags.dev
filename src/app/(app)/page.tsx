@@ -1,59 +1,122 @@
-import type { ProfilePage as PageSchema, WithContext } from "schema-dts";
+import { ArrowUpRight } from "lucide-react";
+import type { Metadata } from "next";
 
-import { AboutSkills } from "@/components/retro/about-skills";
-import { BlueprintBackground } from "@/components/retro/blueprint-background";
-import { Experience } from "@/components/retro/experience";
-import { RetroFooter } from "@/components/retro/footer";
-import { Hero } from "@/components/retro/hero";
-import { RetroNav } from "@/components/retro/retro-nav";
-import { TerminalWindow } from "@/components/retro/window";
-import { RETRO } from "@/config/retro";
-import { HEADER_COPY, SITE_INFO } from "@/config/site";
+import { Approach } from "@/components/minimal/approach";
+import { Avatar } from "@/components/minimal/avatar";
+import { PageShell } from "@/components/minimal/page-shell";
+import { Skills } from "@/components/minimal/skills";
+import { Socials } from "@/components/minimal/socials";
+import { FOLIO, FOLIO_INTRO } from "@/config/folio";
+import { SITE_INFO } from "@/config/site";
+import { PROJECTS } from "@/data/projects";
 
-function getPageJsonLd(): WithContext<PageSchema> {
-  return {
-    "@context": "https://schema.org",
-    "@type": "ProfilePage",
-    dateCreated: new Date("2023-10-20").toISOString(),
-    dateModified: new Date().toISOString(),
-    mainEntity: {
-      "@type": "Person",
-      name: HEADER_COPY.name,
-      identifier: "chiragsharma",
-      image: SITE_INFO.ogImage,
-    },
-  };
-}
+export const metadata: Metadata = {
+  title: "Chirag Sharma — Solo founder, full-stack + AI",
+  description:
+    "Portfolio of Chirag Sharma, a solo founder and full-stack + AI engineer in Gurugram. Building Vuno, LaunchPad and small sharp products end to end.",
+  alternates: { canonical: SITE_INFO.url },
+  openGraph: {
+    title: "Chirag Sharma — Solo founder, full-stack + AI",
+    description:
+      "Building Vuno, LaunchPad and small sharp products end to end. Work, recent activities and a postcard.",
+    url: SITE_INFO.url,
+    type: "website",
+  },
+};
 
-export default function Page() {
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: FOLIO.fullName,
+  url: SITE_INFO.url,
+  email: `mailto:${FOLIO.email}`,
+  jobTitle: "Solo founder & full-stack engineer",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Gurugram",
+    addressCountry: "IN",
+  },
+  sameAs: [FOLIO.githubUrl, FOLIO.linkedinUrl, FOLIO.xUrl],
+  knowsAbout: ["AI products", "Design engineering", "Next.js", "TypeScript"],
+};
+
+export default function HomePage() {
   return (
-    <div className="retro-site">
+    <PageShell>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(getPageJsonLd()).replace(/</g, "\\u003c"),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <BlueprintBackground />
-      <RetroNav />
+      <header className="mp-intro">
+        <Avatar />
+        <div className="mp-intro-title">
+          <h1>
+            {FOLIO.fullName} <span>/ {FOLIO.firstName}</span>
+          </h1>
+        </div>
+        <div className="mp-copy">
+          {FOLIO_INTRO.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </div>
+      </header>
 
-      <main>
-        <Hero />
+      <section className="mp-section" aria-labelledby="works-heading">
+        <div className="mp-section-heading">
+          <h2 id="works-heading">Featured Works</h2>
+          <span className="mp-heading-note">2025 — 2026</span>
+        </div>
+        <ul className="mp-entry-list">
+          {PROJECTS.map((project) => {
+            const content = (
+              <>
+                <div>
+                  <h3>{project.name}</h3>
+                  <p className="mp-secondary">{project.tagline}</p>
+                </div>
+                <p className="mp-entry-note mp-secondary">
+                  {project.year}
+                  <ArrowUpRight className="mp-entry-arrow" size={14} aria-hidden="true" />
+                </p>
+              </>
+            );
 
-        <section id="about" className="about-section">
-          <div>
-            <div id="about-terminal">
-              <TerminalWindow title={RETRO.windowTitle}>
-                <AboutSkills />
-                <Experience />
-              </TerminalWindow>
-            </div>
-          </div>
-        </section>
-      </main>
+            return (
+              <li key={project.slug}>
+                {project.href ? (
+                  <a
+                    className="mp-entry"
+                    href={project.href}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {content}
+                  </a>
+                ) : (
+                  <div className="mp-entry">{content}</div>
+                )}
+              </li>
+            );
+          })}
+        </ul>
+      </section>
 
-      <RetroFooter />
-    </div>
+      <section className="mp-section" aria-labelledby="skills-heading">
+        <div className="mp-section-heading">
+          <h2 id="skills-heading">Skills &amp; Tools</h2>
+        </div>
+        <Skills />
+      </section>
+
+      <section className="mp-section" aria-labelledby="approach-heading">
+        <div className="mp-section-heading">
+          <h2 id="approach-heading">How I approach a problem</h2>
+        </div>
+        <Approach />
+      </section>
+
+      <Socials />
+    </PageShell>
   );
 }

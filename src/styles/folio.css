@@ -1,0 +1,270 @@
+/* ---------------------------------------------------------------------------
+ * Folio — editorial portfolio design system.
+ *
+ * One accent colour, one paper, four typefaces. Everything is scoped through
+ * the `--folio-*` custom properties so the rest of the app (the retro site in
+ * particular) keeps its own palette untouched.
+ * ------------------------------------------------------------------------- */
+
+:root {
+  --folio-paper: #fafbfd;
+  --folio-paper-raised: #ffffff;
+  --folio-paper-sunken: #f2f4fa;
+  --folio-ink: #0a1fd1;
+  --folio-ink-soft: color-mix(in oklab, var(--folio-ink) 55%, var(--folio-paper));
+  --folio-hairline: color-mix(in oklab, var(--folio-ink) 22%, transparent);
+  --folio-glow: transparent;
+  --folio-grain-opacity: 0.5;
+  --folio-shadow-card:
+    0 1px 1px color-mix(in oklab, var(--folio-ink) 6%, transparent),
+    0 18px 40px -18px color-mix(in oklab, var(--folio-ink) 28%, transparent),
+    0 50px 90px -50px color-mix(in oklab, var(--folio-ink) 30%, transparent);
+  --folio-shadow-lift:
+    0 2px 2px color-mix(in oklab, var(--folio-ink) 8%, transparent),
+    0 30px 60px -24px color-mix(in oklab, var(--folio-ink) 40%, transparent),
+    0 80px 120px -60px color-mix(in oklab, var(--folio-ink) 35%, transparent);
+}
+
+html.dark {
+  --folio-paper: #05071c;
+  --folio-paper-raised: #0a0e2a;
+  --folio-paper-sunken: #030514;
+  --folio-ink: #7d8bff;
+  --folio-ink-soft: color-mix(in oklab, var(--folio-ink) 62%, var(--folio-paper));
+  --folio-hairline: color-mix(in oklab, var(--folio-ink) 30%, transparent);
+  --folio-glow: color-mix(in oklab, #2e46ff 55%, transparent);
+  --folio-grain-opacity: 0.35;
+  --folio-shadow-card:
+    0 0 0 1px color-mix(in oklab, var(--folio-ink) 10%, transparent),
+    0 24px 60px -24px color-mix(in oklab, #2e46ff 45%, transparent),
+    0 0 90px -30px color-mix(in oklab, #2e46ff 60%, transparent);
+  --folio-shadow-lift:
+    0 0 0 1px color-mix(in oklab, var(--folio-ink) 22%, transparent),
+    0 32px 80px -20px color-mix(in oklab, #2e46ff 60%, transparent),
+    0 0 140px -20px color-mix(in oklab, #2e46ff 55%, transparent);
+}
+
+@theme inline {
+  --color-paper: var(--folio-paper);
+  --color-paper-raised: var(--folio-paper-raised);
+  --color-paper-sunken: var(--folio-paper-sunken);
+  --color-ink: var(--folio-ink);
+  --color-hairline: var(--folio-hairline);
+
+  --font-serif: var(--folio-serif);
+  --font-grotesk: var(--folio-grotesk);
+  --font-code: var(--folio-mono);
+
+  --radius-folio: 18px;
+}
+
+.folio {
+  /* Declared here, not on :root: the next/font variables are set on <body>,
+     and var() inside a custom property is substituted on the element that
+     declares it. On :root these resolved to nothing and everything fell back
+     to the sans stack. */
+  --folio-serif: var(--font-instrument-serif), "Cormorant Garamond", Georgia,
+    "Times New Roman", serif;
+  --folio-grotesk: var(--font-inter-tight), "Inter Tight", "Inter", ui-sans-serif,
+    system-ui, sans-serif;
+  --folio-mono: var(--font-mono), "Geist Mono", ui-monospace, SFMono-Regular, Menlo,
+    monospace;
+  --folio-cursor-x: 50%;
+  --folio-cursor-y: 50%;
+  background-color: var(--folio-paper);
+  color: var(--folio-ink);
+  font-family: var(--folio-grotesk);
+  font-size: 16px;
+  line-height: 1.55;
+  font-synthesis-weight: none;
+  -webkit-font-smoothing: antialiased;
+  transition:
+    background-color 0.45s ease,
+    color 0.45s ease;
+  position: relative;
+  isolation: isolate;
+}
+
+.folio ::selection {
+  background: var(--folio-ink);
+  color: var(--folio-paper);
+}
+
+.folio a,
+.folio button {
+  transition:
+    color 0.18s ease,
+    opacity 0.18s ease,
+    background-color 0.18s ease;
+}
+
+.folio :focus-visible {
+  outline: 1px dashed var(--folio-ink);
+  outline-offset: 3px;
+}
+
+/* Paper grain: fractal noise, multiplied into whatever surface it sits on. */
+.folio-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: var(--folio-grain-opacity);
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.16'/%3E%3C/svg%3E");
+}
+
+html.dark .folio-grain::after {
+  mix-blend-mode: screen;
+}
+
+.folio-hairline {
+  border-top: 1px dashed var(--folio-hairline);
+}
+
+.folio-card {
+  background: var(--folio-paper-raised);
+  border: 1px solid var(--folio-hairline);
+  border-radius: 18px;
+  box-shadow: var(--folio-shadow-card);
+}
+
+.folio-dashed-pill {
+  border: 1px dashed var(--folio-ink);
+  border-radius: 999px;
+}
+
+.folio-eyebrow {
+  font-family: var(--folio-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.folio-display {
+  font-family: var(--folio-serif);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 0.86;
+}
+
+.folio-italic {
+  font-family: var(--folio-serif);
+  font-style: italic;
+  letter-spacing: -0.01em;
+}
+
+/* Animated underline for inline links. */
+.folio-link {
+  position: relative;
+  display: inline-block;
+}
+.folio-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.folio-link:hover::after,
+.folio-link:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Soft fade at the bottom of project mockups. */
+.folio-mock-fade {
+  mask-image: linear-gradient(to bottom, #000 62%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 62%, transparent 100%);
+}
+
+.folio-scanlines {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    color-mix(in oklab, var(--folio-ink) 8%, transparent) 0 1px,
+    transparent 1px 4px
+  );
+}
+
+@keyframes folio-caret {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+.folio-caret {
+  animation: folio-caret 1s steps(1) infinite;
+}
+
+@keyframes folio-drift {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(0, -6px, 0) rotate(0.4deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+}
+
+.folio-float {
+  animation: folio-drift 9s ease-in-out infinite;
+}
+
+@keyframes folio-hang-sway {
+  0%,
+  100% {
+    transform: rotate(-1.6deg);
+  }
+  50% {
+    transform: rotate(1.6deg);
+  }
+}
+
+.folio-hang-sway {
+  transform-origin: top center;
+  animation: folio-hang-sway 7.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Hide the native cursor only on precise pointers where the custom one is on. */
+@media (hover: hover) and (pointer: fine) {
+  .folio-cursor-active,
+  .folio-cursor-active * {
+    cursor: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .folio *,
+  .folio *::before,
+  .folio *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .folio-float,
+  .folio-hang-sway {
+    animation: none;
+  }
+}
+
+/* Command palette / dialogs lock the paper background behind them. */
+.folio-scroll-lock {
+  overflow: hidden;
+}

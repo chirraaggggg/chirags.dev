@@ -1,10 +1,13 @@
 import "@/styles/globals.css";
+import "@/styles/minimal.css";
 
 import type { Metadata, Viewport } from "next";
 import {
   Caveat,
   Geist_Mono,
+  Instrument_Serif,
   Inter,
+  Inter_Tight,
   JetBrains_Mono,
   Montserrat,
   Press_Start_2P,
@@ -66,6 +69,20 @@ const pixelFont = Press_Start_2P({
   weight: "400",
   display: "swap",
   variable: "--font-pixel-2p",
+});
+
+const serifDisplay = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  display: "swap",
+  variable: "--font-instrument-serif",
+});
+
+const interTight = Inter_Tight({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter-tight",
 });
 
 const montserratFont = Montserrat({
@@ -150,7 +167,7 @@ export default function RootLayout({
       </head>
 
       <body
-        className={`${inter.variable} ${geistMono.variable} ${displayFont.variable} ${handFont.variable} ${terminalFont.variable} ${pixelFont.variable} ${montserratFont.variable}`}
+        className={`${inter.variable} ${geistMono.variable} ${displayFont.variable} ${handFont.variable} ${terminalFont.variable} ${pixelFont.variable} ${montserratFont.variable} ${serifDisplay.variable} ${interTight.variable}`}
       >
         <ThemeProvider
           attribute="class"
