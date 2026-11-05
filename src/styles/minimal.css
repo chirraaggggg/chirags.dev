@@ -353,30 +353,170 @@
   transform: none;
 }
 
-/* ---------- skills ---------- */
+/* ---------- project cards ---------- */
 
-.mp-skill-list {
+.mp-project-grid {
   display: grid;
-  gap: 24px;
-  padding: 8px 12px 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.mp-project-card {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--mp-stroke);
+  border-radius: 8px;
+  background: #fff;
+  color: inherit;
+  transition:
+    border-color 0.2s ease-out,
+    box-shadow 0.2s ease-out,
+    transform 0.2s ease-out;
+}
+
+a.mp-project-card:hover,
+a.mp-project-card:focus-visible {
+  border-color: #999;
+  box-shadow: 0 12px 28px #12121212;
+  transform: translateY(-2px);
+}
+
+.mp-project-card-preview {
+  height: 156px;
+  padding: 10px;
+  background: #f5f5f5;
+}
+
+.mp-project-card-preview > div {
+  height: 100%;
+}
+
+.mp-project-card-body {
+  padding: 14px;
+}
+
+.mp-project-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  color: var(--mp-secondary);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mp-project-badge {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--mp-stroke);
+  border-radius: 50%;
   color: var(--mp-primary);
 }
 
-.mp-skill-list li {
+.mp-project-badge svg {
+  width: 13px;
+  height: 13px;
+}
+
+.mp-project-card-arrow {
+  margin-left: auto;
+  color: var(--mp-primary);
+  font-size: 15px;
+  opacity: 0;
+  transform: translate(-2px, 2px);
+  transition:
+    opacity 0.2s ease-out,
+    transform 0.2s ease-out;
+}
+
+a.mp-project-card:hover .mp-project-card-arrow,
+a.mp-project-card:focus-visible .mp-project-card-arrow {
+  opacity: 1;
+  transform: none;
+}
+
+.mp-project-card h3 {
+  margin-bottom: 6px;
+  color: var(--mp-primary);
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.mp-project-card-body > p {
+  min-height: 48px;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.mp-project-tags {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  min-height: 28px;
-  font-size: 14px;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 16px;
+}
+
+.mp-project-tags span {
+  padding: 3px 7px;
+  border: 1px solid var(--mp-stroke);
+  border-radius: 999px;
+  color: var(--mp-secondary);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.04em;
+}
+
+/* ---------- skills ---------- */
+
+.mp-skill-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  color: var(--mp-primary);
+}
+
+.mp-skill-grid li {
+  min-height: 92px;
+  padding: 12px;
+  border: 1px solid var(--mp-stroke);
+  border-radius: 8px;
+  background: #fff;
+  transition:
+    border-color 0.2s ease-out,
+    transform 0.2s ease-out;
+}
+
+.mp-skill-grid li:hover {
+  border-color: #999;
+  transform: translateY(-2px);
+}
+
+.mp-skill-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.mp-skill-index {
+  color: var(--mp-secondary);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
 }
 
 .mp-skill-icon {
   display: grid;
   place-items: center;
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   flex: none;
-  border-radius: 7px;
+  border: 1px solid var(--mp-stroke);
+  border-radius: 50%;
   background: #f1f1f1;
   color: #404040;
 }
@@ -386,9 +526,10 @@
   height: 14px;
 }
 
-.mp-skill-list li:nth-child(-n + 2) .mp-skill-icon {
-  background: #333;
-  color: #fff;
+.mp-skill-label {
+  display: block;
+  font-size: 13px;
+  line-height: 18px;
 }
 
 /* ---------- accordion ---------- */
@@ -730,7 +871,7 @@
   .mp-section-heading,
   .mp-entry,
   .mp-socials,
-  .mp-skill-list {
+  .mp-skill-grid {
     padding-inline: 0;
   }
 
@@ -776,6 +917,14 @@
 
   .mp-entry {
     gap: 12px;
+  }
+
+  .mp-project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mp-skill-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .mp-dates {

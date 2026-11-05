@@ -25,15 +25,18 @@ const ICONS: Record<FolioSkill["icon"], LucideIcon> = {
 
 export function Skills() {
   return (
-    <ul className="mp-skill-list">
-      {FOLIO_SKILLS.map((skill) => {
+    <ul className="mp-skill-grid">
+      {FOLIO_SKILLS.map((skill, index) => {
         const Icon = ICONS[skill.icon];
         return (
           <li key={skill.label}>
-            <span className="mp-skill-icon" aria-hidden="true">
-              <Icon />
-            </span>
-            {skill.label}
+            <div className="mp-skill-card-top">
+              <span className="mp-skill-index">0{index + 1}</span>
+              <span className="mp-skill-icon" aria-hidden="true">
+                <Icon />
+              </span>
+            </div>
+            <span className="mp-skill-label">{skill.label}</span>
           </li>
         );
       })}

@@ -1,4 +1,3 @@
-import { ArrowUpRight } from "lucide-react";
 import type { Metadata } from "next";
 
 import { Approach } from "@/components/minimal/approach";
@@ -6,6 +5,7 @@ import { Avatar } from "@/components/minimal/avatar";
 import { PageShell } from "@/components/minimal/page-shell";
 import { Skills } from "@/components/minimal/skills";
 import { Socials } from "@/components/minimal/socials";
+import { ProjectBadge, ProjectMockup } from "@/components/work/project-art";
 import { FOLIO, FOLIO_INTRO } from "@/config/folio";
 import { SITE_INFO } from "@/config/site";
 import { PROJECTS } from "@/data/projects";
@@ -67,18 +67,31 @@ export default function HomePage() {
           <h2 id="works-heading">Featured Works</h2>
           <span className="mp-heading-note">2025 — 2026</span>
         </div>
-        <ul className="mp-entry-list">
+        <ul className="mp-project-grid">
           {PROJECTS.map((project) => {
             const content = (
               <>
-                <div>
+                <div className="mp-project-card-preview">
+                  <ProjectMockup project={project} />
+                </div>
+                <div className="mp-project-card-body">
+                  <div className="mp-project-card-meta">
+                    <span className="mp-project-badge">
+                      <ProjectBadge kind={project.badge} />
+                    </span>
+                    <span>{project.date}</span>
+                    <span className="mp-project-card-arrow" aria-hidden="true">
+                      ↗
+                    </span>
+                  </div>
                   <h3>{project.name}</h3>
                   <p className="mp-secondary">{project.tagline}</p>
+                  <div className="mp-project-tags">
+                    {project.stack.slice(0, 3).map((technology) => (
+                      <span key={technology}>{technology}</span>
+                    ))}
+                  </div>
                 </div>
-                <p className="mp-entry-note mp-secondary">
-                  {project.year}
-                  <ArrowUpRight className="mp-entry-arrow" size={14} aria-hidden="true" />
-                </p>
               </>
             );
 
@@ -86,7 +99,7 @@ export default function HomePage() {
               <li key={project.slug}>
                 {project.href ? (
                   <a
-                    className="mp-entry"
+                    className="mp-project-card"
                     href={project.href}
                     target="_blank"
                     rel="noreferrer"
@@ -94,7 +107,7 @@ export default function HomePage() {
                     {content}
                   </a>
                 ) : (
-                  <div className="mp-entry">{content}</div>
+                  <article className="mp-project-card">{content}</article>
                 )}
               </li>
             );
