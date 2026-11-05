@@ -9,7 +9,7 @@ export const FOLIO = {
   firstName: "Chirag",
   fullName: "Chirag Sharma",
   /** Portrait shown in the square avatar tile. */
-  avatar: "/avatar.jpg",
+  avatar: "/chirag-portrait.png",
   role: "Solo founder · Full-stack + AI",
   location: "Gurugram, India",
   timeZone: "Asia/Kolkata",
