@@ -17,7 +17,6 @@ import { ThemeProvider } from "next-themes";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import type { WebSite, WithContext } from "schema-dts";
 
-import { ConsentManager } from "@/components/consent-manager";
 import { Providers } from "@/components/providers";
 import { META_THEME_COLORS, SITE_INFO } from "@/config/site";
 import { THEME_INIT_SCRIPT } from "@/config/theme-script";
@@ -179,7 +178,7 @@ export default function RootLayout({
         >
           <Providers>
             <NuqsAdapter>
-              <ConsentManager>{children}</ConsentManager>
+              {children}
             </NuqsAdapter>
           </Providers>
         </ThemeProvider>

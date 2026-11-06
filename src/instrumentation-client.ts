@@ -11,5 +11,5 @@ if (
     defaults: "2025-05-24",
     cookieless_mode: "on_reject",
   });
-  posthog.has_opted_out_capturing(); // Avoids accidental tracking without consent till c15t has loaded
+  posthog.has_opted_out_capturing();
 }

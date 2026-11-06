@@ -72,30 +72,6 @@ export const FOLIO_EXPERIENCE: FolioExperience[] = [
   { company: "Ethnus", role: "Full-stack developer intern", period: "5/25 – 7/25" },
 ];
 
-export type FolioSkill = {
-  label: string;
-  icon:
-    | "typescript"
-    | "next"
-    | "react"
-    | "python"
-    | "postgres"
-    | "tailwind"
-    | "figma"
-    | "claude";
-};
-
-export const FOLIO_SKILLS: FolioSkill[] = [
-  { label: "TypeScript", icon: "typescript" },
-  { label: "Next.js", icon: "next" },
-  { label: "React", icon: "react" },
-  { label: "Python", icon: "python" },
-  { label: "Postgres", icon: "postgres" },
-  { label: "Tailwind CSS", icon: "tailwind" },
-  { label: "Figma", icon: "figma" },
-  { label: "Claude", icon: "claude" },
-];
-
 export const FOLIO_APPROACH: Array<{ title: string; body: string }> = [
   {
     title: "Understand the problem",
