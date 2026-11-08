@@ -58,6 +58,8 @@ export type FolioExperience = {
   role: string;
   period: string;
   href?: string;
+  summary: string;
+  highlights?: string[];
 };
 
 export const FOLIO_EXPERIENCE: FolioExperience[] = [
@@ -66,10 +68,34 @@ export const FOLIO_EXPERIENCE: FolioExperience[] = [
     role: "Founder & design engineer",
     period: "3/26 – Present",
     href: "https://vuno.design",
+    summary:
+      "An AI web design agent that turns a prompt into responsive, production-ready interfaces.",
+    highlights: [
+      "Product, interface and agent runtime, end to end",
+      "Prompt → shippable HTML, with a design system in code",
+    ],
   },
-  { company: "LaunchPad", role: "Founder", period: "1/26 – Present" },
-  { company: "Freelance", role: "Full-stack developer", period: "7/25 – Present" },
-  { company: "Ethnus", role: "Full-stack developer intern", period: "5/25 – 7/25" },
+  {
+    company: "LaunchPad",
+    role: "Founder",
+    period: "1/26 – Present",
+    summary:
+      "A weekly board for people building SaaS alone — ships, launches and the people behind them.",
+  },
+  {
+    company: "Freelance",
+    role: "Full-stack developer",
+    period: "7/25 – Present",
+    summary:
+      "Design and build small web products end to end for clients — scope, interface, code, launch.",
+  },
+  {
+    company: "Ethnus",
+    role: "Full-stack developer intern",
+    period: "5/25 – 7/25",
+    summary:
+      "Internal tooling and production habits — my first proper look at how software ships with a team.",
+  },
 ];
 
 export const FOLIO_APPROACH: Array<{ title: string; body: string }> = [

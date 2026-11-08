@@ -1,0 +1,1173 @@
+/* ---------------------------------------------------------------------------
+ * Desi portfolio theme — a dark, quiet page dressed with Indian ornament:
+ * marigold toran garlands, floating petals, postage-stamp section markers,
+ * a rangoli before the address block and a pixel temple in the hero.
+ * Everything is scoped under `.deshi` so the rest of the site is untouched.
+ * ------------------------------------------------------------------------ */
+
+.deshi {
+  --in-bg: #0a0810;
+  --in-bg-soft: #120e1a;
+  --in-paper: #ece3d1;
+  --in-paper-soft: #c7bda9;
+  --in-muted: #8d8271;
+  --in-line: #2a2231;
+  --in-line-strong: #3d3146;
+  --in-marigold: #f3a83c;
+  --in-saffron: #ff8f46;
+  --in-gold: #e8c98a;
+  --in-rose: #e0607f;
+  --in-indigo: #7b87d8;
+  --in-leaf: #63a86e;
+  --in-cream: #f8efdc;
+
+  position: relative;
+  min-height: 100svh;
+  overflow-x: clip;
+  background:
+    radial-gradient(
+      120% 60% at 50% 0%,
+      rgba(140, 60, 100, 0.16),
+      transparent 60%
+    ),
+    radial-gradient(
+      80% 45% at 50% 100%,
+      rgba(70, 60, 140, 0.14),
+      transparent 65%
+    ),
+    var(--in-bg);
+  color: var(--in-paper-soft);
+  font-family: var(--font-inter), Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.85;
+  letter-spacing: 0;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.deshi *,
+.deshi *::before,
+.deshi *::after {
+  box-sizing: border-box;
+}
+
+.deshi h1,
+.deshi h2,
+.deshi h3,
+.deshi h4,
+.deshi p,
+.deshi ul,
+.deshi ol,
+.deshi dl,
+.deshi dd,
+.deshi figure {
+  margin: 0;
+  padding: 0;
+}
+
+.deshi ul,
+.deshi ol {
+  list-style: none;
+}
+
+.deshi a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.deshi button {
+  font: inherit;
+  color: inherit;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.deshi a:focus-visible,
+.deshi button:focus-visible,
+.deshi summary:focus-visible {
+  outline: 2px solid var(--in-marigold);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* ---------- ornament layer ---------- */
+
+.deshi-toran {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 3;
+  height: 420px;
+  pointer-events: none;
+  color: var(--in-marigold);
+}
+
+.deshi-toran svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.deshi-toran-sway {
+  transform-origin: 50% 0;
+  animation: deshi-sway 7s ease-in-out infinite;
+}
+
+.deshi-toran-top {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 66px;
+  background-repeat: repeat-x;
+  background-position: top center;
+  background-size: 48px 62px;
+}
+
+.deshi-toran-sway-alt {
+  transform-origin: 50% 0;
+  animation: deshi-sway 9s ease-in-out -3s infinite reverse;
+}
+
+@keyframes deshi-sway {
+  0%,
+  100% {
+    transform: rotate(-0.5deg);
+  }
+  50% {
+    transform: rotate(0.5deg);
+  }
+}
+
+.deshi-petals {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.deshi-petal {
+  position: absolute;
+  top: -6%;
+  width: 9px;
+  height: 9px;
+  border-radius: 60% 0 60% 0;
+  opacity: 0;
+  animation: deshi-drift linear infinite;
+}
+
+@keyframes deshi-drift {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  8% {
+    opacity: 0.7;
+  }
+  85% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--drift, 40px), 108vh, 0) rotate(320deg);
+  }
+}
+
+/* ---------- page column ---------- */
+
+.deshi-page {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  max-width: 700px;
+  margin-inline: auto;
+  padding: 132px 24px 140px;
+}
+
+.deshi-page--work {
+  padding-top: 150px;
+}
+
+.deshi-skip {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 40;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--in-cream);
+  color: var(--in-bg);
+  font-size: 12px;
+  transform: translateY(-200%);
+}
+
+.deshi-skip:focus {
+  transform: none;
+}
+
+/* ---------- hero ---------- */
+
+.deshi-hero {
+  position: relative;
+  margin-bottom: 92px;
+}
+
+.deshi-namaste {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+  color: var(--in-gold);
+  font-family: var(--font-devanagari), "Noto Sans Devanagari", serif;
+  font-size: 24px;
+  line-height: 1.2;
+  transform: rotate(-2deg);
+}
+
+.deshi-namaste span:last-child {
+  color: var(--in-muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  transform: rotate(2.5deg);
+}
+
+.deshi-name {
+  color: var(--in-cream);
+  font-family: var(--font-rozha), var(--font-instrument-serif), Georgia, serif;
+  font-size: clamp(42px, 8vw, 62px);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+}
+
+.deshi-name em {
+  display: block;
+  color: var(--in-gold);
+  font-size: 0.42em;
+  font-style: normal;
+  letter-spacing: 0.02em;
+}
+
+.deshi-intro {
+  margin-top: 34px;
+  max-width: 566px;
+  color: var(--in-paper-soft);
+  font-size: 15.5px;
+  line-height: 1.85;
+}
+
+.deshi-intro p + p {
+  margin-top: 18px;
+}
+
+.deshi-intro a:not(.deshi-chip) {
+  color: var(--in-paper);
+  border-bottom: 1px solid rgba(232, 201, 138, 0.45);
+  transition:
+    color 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.deshi-intro a:not(.deshi-chip):hover {
+  color: var(--in-gold);
+  border-color: var(--in-gold);
+}
+
+.deshi-intro strong {
+  color: var(--in-cream);
+  font-weight: 500;
+}
+
+.deshi-chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 1px 8px 2px;
+  border: 1px dashed var(--in-line-strong);
+  border-radius: 5px;
+  background: rgba(243, 168, 60, 0.08);
+  color: var(--in-gold);
+  white-space: nowrap;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.deshi-chip:hover {
+  border-color: var(--in-marigold);
+  background: rgba(243, 168, 60, 0.16);
+}
+
+.deshi-chip-badge {
+  padding: 0 4px;
+  border-radius: 3px;
+  background: rgba(123, 135, 216, 0.18);
+  color: var(--in-indigo);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+}
+
+/* ---------- temple diorama ---------- */
+
+.deshi-diorama {
+  position: relative;
+  isolation: isolate;
+  width: min(100%, 620px);
+  margin: 0 auto;
+  padding: 22px 0 8px;
+}
+
+.deshi-diorama-art {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: 18px;
+  -webkit-mask-image: radial-gradient(
+    ellipse 78% 72% at 50% 50%,
+    #000 55%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 78% 72% at 50% 50%,
+    #000 55%,
+    transparent 100%
+  );
+}
+
+.deshi-diorama-art svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+}
+
+.deshi-diorama-glow {
+  position: absolute;
+  inset: 16% -2% 10%;
+  z-index: 0;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 143, 70, 0.26),
+    rgba(224, 96, 127, 0.12) 45%,
+    transparent 72%
+  );
+  filter: blur(26px);
+}
+
+.deshi-diorama-caption {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+  color: var(--in-muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.deshi-diorama-caption::before,
+.deshi-diorama-caption::after {
+  content: "";
+  width: 34px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--in-line-strong));
+}
+
+.deshi-diorama-caption::after {
+  background: linear-gradient(90deg, var(--in-line-strong), transparent);
+}
+
+/* ---------- sections ---------- */
+
+.deshi-section {
+  margin-top: 96px;
+}
+
+.deshi-section-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 26px;
+}
+
+.deshi-section-head h2 {
+  color: var(--in-cream);
+  font-family: var(--font-rozha), Georgia, serif;
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: 0.005em;
+  line-height: 1.2;
+}
+
+.deshi-section-head p {
+  margin-left: auto;
+  color: var(--in-muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ---------- stamps ---------- */
+
+.deshi-stamp {
+  --stamp-size: 54px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: var(--stamp-size);
+  height: calc(var(--stamp-size) * 1.16);
+  padding: 5px;
+  background: var(--in-cream);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.5),
+    0 8px 20px -10px rgba(0, 0, 0, 0.9);
+}
+
+.deshi-stamp::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, var(--in-bg) 1.6px, transparent 1.7px),
+    radial-gradient(circle, var(--in-bg) 1.6px, transparent 1.7px);
+  background-size: 9px 9px;
+  background-position:
+    0 -4.5px,
+    -4.5px 0;
+  -webkit-mask-image:
+    linear-gradient(#000, #000), linear-gradient(#000, #000),
+    linear-gradient(#000, #000), linear-gradient(#000, #000);
+  mask-image:
+    linear-gradient(#000, #000), linear-gradient(#000, #000),
+    linear-gradient(#000, #000), linear-gradient(#000, #000);
+  -webkit-mask-size:
+    100% 4px,
+    100% 4px,
+    4px 100%,
+    4px 100%;
+  mask-size:
+    100% 4px,
+    100% 4px,
+    4px 100%,
+    4px 100%;
+  -webkit-mask-position:
+    top,
+    bottom,
+    left,
+    right;
+  mask-position:
+    top,
+    bottom,
+    left,
+    right;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+.deshi-stamp-inner {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.deshi-stamp-inner svg {
+  width: 100%;
+  height: 100%;
+}
+
+.deshi-stamp--sm {
+  --stamp-size: 38px;
+}
+
+.deshi-stamp--lg {
+  --stamp-size: 74px;
+}
+
+.deshi-stamp--pair {
+  display: flex;
+  gap: 4px;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.deshi-stamp-tilt-a {
+  transform: rotate(-5deg);
+}
+
+.deshi-stamp-tilt-b {
+  transform: rotate(4deg);
+}
+
+/* ---------- project rows ---------- */
+
+.deshi-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.deshi-row {
+  position: relative;
+  display: block;
+  padding: 14px 16px 15px;
+  border-radius: 8px;
+  transition:
+    background-color 0.22s ease,
+    transform 0.22s ease;
+}
+
+.deshi-row:hover {
+  background: rgba(236, 227, 209, 0.045);
+  transform: translateX(3px);
+}
+
+.deshi-row-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--in-paper);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.deshi-row-title .deshi-emoji {
+  font-size: 15px;
+  line-height: 1;
+  filter: saturate(1.1);
+}
+
+.deshi-row-arrow {
+  color: var(--in-muted);
+  font-size: 11px;
+  opacity: 0;
+  transform: translate(-3px, 2px);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    color 0.2s ease;
+}
+
+.deshi-row:hover .deshi-row-arrow {
+  opacity: 1;
+  color: var(--in-gold);
+  transform: none;
+}
+
+.deshi-row-body {
+  margin-top: 5px;
+  padding-left: 26px;
+  color: var(--in-paper-soft);
+  font-size: 14.5px;
+  line-height: 1.75;
+}
+
+.deshi-row-body + .deshi-row-body {
+  margin-top: 6px;
+}
+
+.deshi-row-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+  padding-left: 26px;
+  color: var(--in-muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.deshi-row-title .deshi-stop-period {
+  margin-left: auto;
+}
+
+.deshi-row-meta span + span::before {
+  content: "·";
+  margin-right: 6px;
+  color: var(--in-line-strong);
+}
+
+/* ---------- career timeline ---------- */
+
+.deshi-timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-left: 30px;
+}
+
+.deshi-timeline::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  bottom: 10px;
+  left: 9px;
+  width: 0;
+  border-left: 1px dashed var(--in-line-strong);
+}
+
+.deshi-stop {
+  position: relative;
+}
+
+.deshi-stop::before {
+  content: "";
+  position: absolute;
+  top: 9px;
+  left: -26px;
+  width: 9px;
+  height: 9px;
+  border: 1px solid rgba(243, 168, 60, 0.5);
+  border-radius: 50%;
+  background: var(--in-marigold);
+  box-shadow:
+    0 0 0 4px rgba(10, 8, 16, 0.9),
+    0 0 14px 1px rgba(243, 168, 60, 0.45);
+}
+
+.deshi-stop-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.deshi-stop-head h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--in-paper);
+  font-size: 15.5px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.deshi-stop-head h3 a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--in-paper);
+}
+
+.deshi-stop-head h3 a:hover {
+  color: var(--in-gold);
+}
+
+.deshi-stop-period {
+  flex: none;
+  color: var(--in-muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.deshi-stop-role {
+  margin-top: 2px;
+  color: var(--in-gold);
+  font-size: 14px;
+}
+
+.deshi-stop-body {
+  margin-top: 8px;
+  color: var(--in-paper-soft);
+  font-size: 14.5px;
+  line-height: 1.75;
+}
+
+.deshi-stop-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 10px;
+  padding-left: 14px;
+  border-left: 1px dotted var(--in-line-strong);
+}
+
+.deshi-stop-list li {
+  position: relative;
+  padding-left: 14px;
+  color: var(--in-paper-soft);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.deshi-stop-list li::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--in-marigold);
+  opacity: 0.75;
+}
+
+/* ---------- rangoli ---------- */
+
+.deshi-rangoli {
+  position: relative;
+  display: grid;
+  place-items: center;
+  margin: 108px auto 84px;
+  width: 100%;
+}
+
+.deshi-rangoli-art {
+  width: min(300px, 66vw);
+  height: auto;
+  filter: drop-shadow(0 12px 34px rgba(224, 96, 127, 0.22));
+}
+
+.deshi-rangoli-spin {
+  transform-origin: 50% 50%;
+  animation: deshi-spin 90s linear infinite;
+}
+
+@keyframes deshi-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- contact ---------- */
+
+.deshi-contact {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.deshi-contact-list {
+  flex: 1;
+  min-width: 0;
+  border-top: 1px dotted var(--in-line-strong);
+}
+
+.deshi-contact-row {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 11px 0;
+  border-bottom: 1px dotted var(--in-line-strong);
+}
+
+.deshi-contact-row dt {
+  flex: none;
+  width: 68px;
+  color: var(--in-muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.deshi-contact-row dd {
+  min-width: 0;
+  color: var(--in-paper);
+  font-size: 14.5px;
+  overflow-wrap: anywhere;
+}
+
+.deshi-contact-row dd a {
+  position: relative;
+  transition: color 0.18s ease;
+}
+
+.deshi-contact-row dd a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 1px;
+  left: 0;
+  height: 1px;
+  background: var(--in-gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.deshi-contact-row dd a:hover {
+  color: var(--in-gold);
+}
+
+.deshi-contact-row dd a:hover::after {
+  transform: scaleX(1);
+}
+
+.deshi-contact-stamps {
+  display: flex;
+  flex: none;
+  align-items: flex-end;
+  padding-bottom: 6px;
+}
+
+.deshi-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 64px;
+  padding-top: 22px;
+  border-top: 1px solid var(--in-line);
+  color: var(--in-muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.deshi-footer a {
+  color: var(--in-paper-soft);
+}
+
+.deshi-footer a:hover {
+  color: var(--in-gold);
+}
+
+/* ---------- dock ---------- */
+
+.deshi-dock {
+  position: fixed;
+  bottom: max(22px, env(safe-area-inset-bottom));
+  left: 50%;
+  z-index: 20;
+  transform: translateX(-50%);
+  animation: deshi-rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes deshi-rise {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 14px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.deshi-dock-surface {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px;
+  border: 1px solid var(--in-line-strong);
+  border-radius: 999px;
+  background: rgba(18, 14, 26, 0.82);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  backdrop-filter: blur(14px) saturate(1.2);
+  box-shadow:
+    0 18px 40px -18px rgba(0, 0, 0, 0.9),
+    inset 0 1px 0 rgba(248, 239, 220, 0.06);
+}
+
+.deshi-dock-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  padding: 0 14px;
+  border-radius: 999px;
+  color: var(--in-paper-soft);
+  font-size: 13px;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.deshi-dock-link:hover {
+  color: var(--in-cream);
+}
+
+.deshi-dock-link[aria-current="page"] {
+  background: rgba(243, 168, 60, 0.14);
+  color: var(--in-gold);
+}
+
+.deshi-dock-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  padding: 0 16px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #f6b452, #e08a2c);
+  color: #2b1a06;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  transition: filter 0.2s ease;
+}
+
+.deshi-dock-cta:hover {
+  filter: brightness(1.07);
+}
+
+/* ---------- work page ---------- */
+
+.deshi-work-hero {
+  margin-bottom: 40px;
+}
+
+.deshi-work-hero h1 {
+  color: var(--in-cream);
+  font-family: var(--font-rozha), Georgia, serif;
+  font-size: clamp(36px, 7vw, 52px);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.deshi-work-hero p {
+  margin-top: 14px;
+  max-width: 520px;
+  color: var(--in-paper-soft);
+}
+
+.deshi-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 22px;
+  color: var(--in-muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.deshi-back:hover {
+  color: var(--in-gold);
+}
+
+.deshi-work-section {
+  margin-top: 74px;
+}
+
+.deshi-work-section:first-of-type {
+  margin-top: 56px;
+}
+
+.deshi-approach {
+  display: grid;
+  gap: 8px;
+}
+
+.deshi-accordion {
+  border: 1px solid var(--in-line);
+  border-radius: 8px;
+  background: rgba(236, 227, 209, 0.02);
+  interpolate-size: allow-keywords;
+}
+
+.deshi-accordion summary {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  list-style: none;
+  cursor: pointer;
+  color: var(--in-paper);
+  font-size: 14.5px;
+  transition: background-color 0.2s ease;
+}
+
+.deshi-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.deshi-accordion summary:hover {
+  background: rgba(236, 227, 209, 0.04);
+}
+
+.deshi-accordion summary svg {
+  margin-left: auto;
+  flex: none;
+  color: var(--in-muted);
+  transition: transform 0.2s ease;
+}
+
+.deshi-accordion[open] summary {
+  border-bottom: 1px dotted var(--in-line-strong);
+}
+
+.deshi-accordion[open] summary svg {
+  transform: rotate(180deg);
+}
+
+.deshi-accordion-num {
+  color: var(--in-marigold);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+
+.deshi-accordion p {
+  padding: 16px;
+  color: var(--in-paper-soft);
+  font-size: 14px;
+  white-space: pre-line;
+}
+
+.deshi-accordion::details-content {
+  overflow: hidden;
+  block-size: 0;
+  opacity: 0;
+  transition:
+    block-size 0.24s ease-out,
+    opacity 0.2s ease-out,
+    content-visibility 0.24s allow-discrete;
+}
+
+.deshi-accordion[open]::details-content {
+  block-size: auto;
+  opacity: 1;
+}
+
+/* ---------- small screens ---------- */
+
+.deshi-toran-side {
+  position: absolute;
+  top: -10px;
+  height: 400px;
+}
+
+.deshi-toran-side--left {
+  left: -18px;
+}
+
+.deshi-toran-side--right {
+  right: -18px;
+  transform: scaleX(-1);
+}
+
+@media (max-width: 760px) {
+  .deshi-toran-side {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .deshi-toran-top {
+    height: 54px;
+    background-size: 38px 49px;
+  }
+}
+
+@media (max-width: 640px) {
+  .deshi {
+    font-size: 14.5px;
+  }
+
+  .deshi-page {
+    padding: 112px 18px 130px;
+  }
+
+  .deshi-hero {
+    margin-bottom: 64px;
+  }
+
+  .deshi-intro {
+    margin-top: 26px;
+  }
+
+  .deshi-section {
+    margin-top: 68px;
+  }
+
+  .deshi-section-head {
+    gap: 12px;
+  }
+
+  .deshi-section-head h2 {
+    font-size: 22px;
+  }
+
+  .deshi-rangoli {
+    margin: 76px auto 60px;
+  }
+
+  .deshi-contact {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 26px;
+  }
+
+  .deshi-contact-stamps {
+    justify-content: flex-end;
+  }
+
+  .deshi-dock {
+    width: calc(100% - 28px);
+  }
+
+  .deshi-dock-surface {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .deshi-dock-link {
+    flex: 1;
+  }
+
+  .deshi-stop-head {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .deshi-row {
+    padding: 12px 12px 13px;
+  }
+
+  .deshi-row-body,
+  .deshi-row-meta {
+    padding-left: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .deshi-toran-sway,
+  .deshi-toran-sway-alt,
+  .deshi-rangoli-spin,
+  .deshi-petal,
+  .deshi-dock {
+    animation: none;
+  }
+
+  .deshi-petal {
+    display: none;
+  }
+
+  .deshi-row,
+  .deshi-row-arrow,
+  .deshi-accordion summary,
+  .deshi-accordion summary svg,
+  .deshi-accordion::details-content {
+    transition: none;
+  }
+}

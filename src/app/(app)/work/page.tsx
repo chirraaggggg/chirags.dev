@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { WorkPageContent } from "@/components/minimal/work-page";
+import { WorkPageContent } from "@/components/indian/work-page";
 import { SITE_INFO } from "@/config/site";
 
 export const metadata: Metadata = {
