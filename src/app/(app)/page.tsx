@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
 
-import { CareerSection } from "@/components/indian/career-section";
-import { ContactSection } from "@/components/indian/contact-section";
-import { Hero } from "@/components/indian/hero";
+import { Home } from "@/components/indian/home";
 import { PageShell } from "@/components/indian/page-shell";
-import { ProjectsSection } from "@/components/indian/projects-section";
-import { TempleScene } from "@/components/indian/temple-scene";
 import { SITE_INFO } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -25,11 +21,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <PageShell>
-      <Hero />
-      <TempleScene />
-      <ProjectsSection />
-      <CareerSection />
-      <ContactSection />
+      <Home />
     </PageShell>
   );
 }

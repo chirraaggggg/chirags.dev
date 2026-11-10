@@ -1,37 +1,27 @@
-import {
-  StampLotus,
-  StampMandala,
-  StampPaisley,
-  StampSun,
-  StampTemple,
-} from "@/components/indian/stamps";
-
-const STAMPS = {
-  lotus: StampLotus,
-  sun: StampSun,
-  temple: StampTemple,
-  mandala: StampMandala,
-  paisley: StampPaisley,
-} as const;
+import { Lotus } from "@/components/indian/blooms";
 
 export function SectionHead({
   id,
+  index,
   title,
-  glyph = "lotus",
   note,
 }: {
   id: string;
+  index: string;
   title: string;
-  glyph?: keyof typeof STAMPS;
   note?: string;
 }) {
-  const Stamp = STAMPS[glyph];
-
   return (
-    <div className="deshi-section-head">
-      <Stamp />
-      <h2 id={id}>{title}</h2>
-      {note ? <p>{note}</p> : null}
-    </div>
+    <header className="deshi-section-head">
+      <p className="deshi-kicker">
+        <Lotus size={22} />
+        <span className="deshi-index">{index}</span>
+        {note ? <span className="deshi-note">{note}</span> : null}
+      </p>
+      <div className="deshi-section-title">
+        <h2 id={id}>{title}</h2>
+        <span className="deshi-hair" aria-hidden="true" />
+      </div>
+    </header>
   );
 }

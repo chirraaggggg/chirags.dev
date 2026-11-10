@@ -12,9 +12,7 @@ import {
   JetBrains_Mono,
   Montserrat,
   Press_Start_2P,
-  Rozha_One,
   Space_Grotesk,
-  Tiro_Devanagari_Hindi,
 } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
@@ -85,20 +83,6 @@ const interTight = Inter_Tight({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter-tight",
-});
-
-const desiDisplay = Rozha_One({
-  subsets: ["latin"],
-  weight: "400",
-  display: "swap",
-  variable: "--font-rozha",
-});
-
-const devanagari = Tiro_Devanagari_Hindi({
-  subsets: ["devanagari", "latin"],
-  weight: "400",
-  display: "swap",
-  variable: "--font-devanagari",
 });
 
 const montserratFont = Montserrat({
@@ -183,7 +167,7 @@ export default function RootLayout({
       </head>
 
       <body
-        className={`${inter.variable} ${geistMono.variable} ${displayFont.variable} ${handFont.variable} ${terminalFont.variable} ${pixelFont.variable} ${montserratFont.variable} ${serifDisplay.variable} ${interTight.variable} ${desiDisplay.variable} ${devanagari.variable}`}
+        className={`${inter.variable} ${geistMono.variable} ${displayFont.variable} ${handFont.variable} ${terminalFont.variable} ${pixelFont.variable} ${montserratFont.variable} ${serifDisplay.variable} ${interTight.variable}`}
       >
         <ThemeProvider
           attribute="class"

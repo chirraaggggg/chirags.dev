@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
 
-import { Dock } from "@/components/indian/dock";
+import { BloomDefs } from "@/components/indian/blooms";
+import { BottomBar } from "@/components/indian/bottom-bar";
 import { Petals } from "@/components/indian/petals";
-import { Toran } from "@/components/indian/toran";
 
 export function PageShell({
   children,
@@ -13,15 +13,19 @@ export function PageShell({
 }) {
   return (
     <div className="deshi">
+      <BloomDefs />
+      <div className="deshi-grain" aria-hidden="true" />
+      <Petals />
       <a className="deshi-skip" href="#main">
         Skip to content
       </a>
-      <Toran />
-      <Petals />
-      <main id="main" className={wide ? "deshi-page deshi-page--work" : "deshi-page"}>
+      <BottomBar />
+      <main
+        id="main"
+        className={wide ? "deshi-page deshi-page--wide" : "deshi-page"}
+      >
         {children}
       </main>
-      <Dock />
     </div>
   );
 }

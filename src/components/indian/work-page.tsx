@@ -1,31 +1,27 @@
 import Link from "next/link";
 
+import { ArrowUpRight } from "@/components/indian/arrow";
 import { ContactSection } from "@/components/indian/contact-section";
 import { PageShell } from "@/components/indian/page-shell";
+import { Rangoli } from "@/components/indian/rangoli";
+import { Reveal } from "@/components/indian/reveal";
 import { SectionHead } from "@/components/indian/section-head";
 import { FOLIO_APPROACH } from "@/config/folio";
 import { PROJECTS } from "@/data/projects";
 
-const GLYPHS: Record<string, string> = {
-  maillayer: "💌",
-  gitwhisper: "🌿",
-  repotutor: "🧭",
-  chess: "♟️",
-  vuno: "✨",
-};
-
 function Chevron() {
   return (
     <svg
-      width="14"
-      height="14"
+      width="15"
+      height="15"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.6"
+      strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
+      className="deshi-chevron"
     >
       <path d="m6 9 6 6 6-6" />
     </svg>
@@ -47,70 +43,88 @@ export function WorkPageContent() {
         </p>
       </header>
 
-      <section className="deshi-work-section" aria-labelledby="work-projects">
+      <section
+        className="deshi-section"
+        aria-labelledby="work-projects"
+      >
         <SectionHead
           id="work-projects"
+          index="01"
           title="Projects"
-          glyph="lotus"
           note={`${PROJECTS.length} selected`}
         />
-        <div className="deshi-list">
-          {PROJECTS.map((project) => (
-            <article key={project.slug} className="deshi-row">
-              <div className="deshi-row-title">
-                <span className="deshi-emoji" aria-hidden="true">
-                  {GLYPHS[project.slug] ?? "✦"}
-                </span>
-                {project.href ? (
-                  <a href={project.href} target="_blank" rel="noreferrer">
-                    {project.name}
-                  </a>
-                ) : (
-                  project.name
-                )}
-                <span className="deshi-row-arrow" aria-hidden="true">
-                  ↗
-                </span>
-                <span className="deshi-stop-period">{project.date}</span>
-              </div>
-              {project.story.map((paragraph) => (
-                <p key={paragraph} className="deshi-row-body">
-                  {paragraph}
+
+        <div className="deshi-work-list">
+          {PROJECTS.map((project, index) => (
+            <Reveal key={project.slug} delay={index * 0.03}>
+              <article className="deshi-work-item">
+                <div className="deshi-work-item-head">
+                  <span className="deshi-project-index">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <h3>
+                    {project.href ? (
+                      <a href={project.href} target="_blank" rel="noreferrer">
+                        {project.name}
+                        <ArrowUpRight className="deshi-work-item-arrow" />
+                      </a>
+                    ) : (
+                      project.name
+                    )}
+                  </h3>
+                  <span className="deshi-project-year">{project.date}</span>
+                </div>
+
+                <div className="deshi-work-item-body">
+                  {project.story.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+
+                <p className="deshi-work-item-meta">
+                  <span>{project.role}</span>
+                  <span aria-hidden="true">/</span>
+                  <span>{project.stack.join(" · ")}</span>
                 </p>
-              ))}
-              <div className="deshi-row-meta">
-                <span>{project.role}</span>
-                {project.stack.map((tech) => (
-                  <span key={tech}>{tech}</span>
-                ))}
-              </div>
-            </article>
+              </article>
+            </Reveal>
           ))}
         </div>
       </section>
 
-      <section className="deshi-work-section" aria-labelledby="work-approach">
+      <section className="deshi-section" aria-labelledby="work-approach">
         <SectionHead
           id="work-approach"
+          index="02"
           title="How I work"
-          glyph="mandala"
-          note="the boring part"
+          note="The boring part, honestly"
         />
+
         <div className="deshi-approach">
           {FOLIO_APPROACH.map((step, index) => (
-            <details key={step.title} className="deshi-accordion">
-              <summary>
-                <span className="deshi-accordion-num">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                {step.title}
-                <Chevron />
-              </summary>
-              <p>{step.body}</p>
-            </details>
+            <Reveal key={step.title} delay={index * 0.04}>
+              <details className="deshi-accordion">
+                <summary>
+                  <span className="deshi-accordion-num">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="deshi-accordion-title">{step.title}</span>
+                  <Chevron />
+                </summary>
+                <div className="deshi-accordion-body">
+                  {step.body.split("\n").map((line) => (
+                    <p key={line}>{line}</p>
+                  ))}
+                </div>
+              </details>
+            </Reveal>
           ))}
         </div>
       </section>
+
+      <div className="deshi-rangoli-wrap" aria-hidden="true">
+        <Rangoli className="deshi-rangoli" />
+      </div>
 
       <ContactSection />
     </PageShell>
